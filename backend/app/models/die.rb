@@ -2,16 +2,17 @@ class Die < ActiveRecord::Base
     self.table_name = "dice"
     has_many :values
 
-    def self.create(description:, type_of_die:, image_url: nil)
-        if self.type_of_die == "d%"
-            @num_of_values = 10
+    def create_values
+        if type_of_die == "d%"
+            self.update(num_of_values: 10)
             (0..9).to_a.each{ |val| Value.create(value: val, die_id: self.id) }
-        elsif self.type_of_die == "2d6"
-            @num_of_values = 11
+        elsif type_of_die == "2d6"
+            self.update(num_of_values: 11)
             (2..12).to_a.each{ |val| Value.create(value: val, die_id: self.id) }
         else
-            @num_of_values = @type_of_die.scan(/\d/).sample.to_i
-            (1..@num_of_values).to_a.each{ |val| Value.create(value: val, die_id: self.id) }
+            max_value = self.type_of_die.tr('^0-9', '').to_i
+            self.update(num_of_values: max_value)
+            (1..num_of_values).to_a.each{ |val| Value.create(value: val, die_id: self.id) }
         end
     end
 

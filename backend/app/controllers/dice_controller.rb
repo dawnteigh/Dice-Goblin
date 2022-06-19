@@ -4,9 +4,20 @@ class DiceController < ApplicationController
         Die.all.to_json
     end
 
-    # Get a single die using its id for a show page
+    # Get a single die using its id for a show page, which will use the response values to create buttons to update said values
     get '/dice/:id' do
-        Die.find(params[:id]).to_json
+        Die.find(params[:id]).to_json(include: :values)
+    end
+
+    # Create new die with values, response is the new die
+    post '/dice' do
+        new_die = Die.create(
+            description: params[:description],
+            type_of_die: params[:type_of_die],
+            image_url: params[:image_url]
+            )
+        new_die.create_values
+        new_die.to_json
     end
 
 end
