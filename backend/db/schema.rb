@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_18_021953) do
+ActiveRecord::Schema.define(version: 2022_06_19_172218) do
 
   create_table "dice", force: :cascade do |t|
     t.string "description"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_06_18_021953) do
   create_table "values", force: :cascade do |t|
     t.integer "value"
     t.integer "die_id"
-    t.integer "times_rolled", default: 1
+    t.integer "times_rolled", default: 0
   end
 
 end
