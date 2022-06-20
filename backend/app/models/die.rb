@@ -15,14 +15,15 @@ class Die < ActiveRecord::Base
             (1..num_of_values).to_a.each{ |val| Value.create(value: val, die_id: self.id) }
         end
     end
-
+    
+    def update_total
+        sum = self.values.map{ |v| v.times_rolled }.sum
+        self.update(total_rolls: sum)
+    end
+    
     def update_avg
         avg = self.values.map{ |v| v.value * v.times_rolled }.sum / self.total_rolls.to_f
         self.update(average_roll: avg)
     end
 
-    def update_total
-        sum = self.values.map{ |v| v.times_rolled }.sum
-        self.update(total_rolls: sum)
-    end
 end

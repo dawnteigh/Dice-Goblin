@@ -20,4 +20,20 @@ class DiceController < ApplicationController
         new_die.to_json
     end
 
+    # Edit desc and image
+    patch '/dice/:id' do
+        updated_die = Die.find(params[:id]).update(
+            description: params[:description],
+            image_url: params[:image_url]
+            )
+        updated_die.to_json
+    end
+
+    # Delete a die and its values
+    delete '/dice/:id' do
+        Value.delete_all(die_id: params[:id])
+        deleted_die = Die.find(params[:id])
+        deleted_die.destroy
+        deleted_die.to_json
+    end
 end
