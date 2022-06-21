@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import DieCard from './DieCard'
 
 
+
+
 const DieList = ({ dice }) => {
 
   const [list, setList] = useState([])
@@ -20,7 +22,10 @@ const DieList = ({ dice }) => {
 
   return (
     <div>
-        {diceList}
+
+      <div className="diceGrid">
+          {diceList}
+      </div>
     </div>
   )
 }
