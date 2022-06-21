@@ -6,7 +6,12 @@ import DieList from './DieList'
 import DieForm from './DieForm'
 import DieShow from './DieShow'
 
-const Dice = () => {
+const Dice = ({ dice }) => {
+
+  //const [showDie, setShowDie] = useState({})
+  //define callback function to setShowDie here and pass it to DieList
+  //showDie gets passed to DieShow
+
   return (
     <div>
         <DieForm />
@@ -16,7 +21,7 @@ const Dice = () => {
               <DieShow />
             </Col>
             <Col>
-              <DieList />
+              <DieList dice={dice} />
             </Col>
           </Row>
         </Container>
