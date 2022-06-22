@@ -8,13 +8,15 @@ const DieList = ({ dice }) => {
 
   const [list, setList] = useState([])
   // const [filter, setFilter] = useState("all")
-  // const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("")
 
   useEffect(()=> {
     setList(dice)
   }, [dice])
 
-  const diceList = list.map(d => {
+  const searchList = list.filter(d => d.description.toLowerCase().includes(search.toLowerCase()))
+
+  const diceList = searchList.map(d => {
     return (
         <DieCard key={d.id} die={d} />
     )
@@ -22,7 +24,7 @@ const DieList = ({ dice }) => {
 
   return (
     <div>
-
+      <input onChange={(e) => setSearch(e.target.value)} type="text" size="45" placeholder="Search dice by description" />
       <div className="diceGrid">
           {diceList}
       </div>
