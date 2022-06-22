@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: fixed;
 }
 
 .navTab {
@@ -23,6 +24,12 @@
 .diceGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  overflow: auto;
+  height: 85vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .thumbnail {
