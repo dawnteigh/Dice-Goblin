@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { DiceContext } from "../context/dice";
 
-const EditDie = ({ die }) => {
+const EditDie = ({ die, setShowDie }) => {
 
 	const { id, description, image_url, type_of_die } = die
 	const { dice, setDice } = useContext(DiceContext)
@@ -19,7 +19,7 @@ const EditDie = ({ die }) => {
     })
   }
 
-	function handleUpdateDie(updatedDie) {
+	const handleUpdateDie = (updatedDie) => {
 		const updatedDice = dice.map(d => {
 			if (d.id === updatedDie.id) {
 				return updatedDie;
@@ -54,6 +54,7 @@ const EditDie = ({ die }) => {
 		.then(r => r.json())
 		const updatedDice = dice.filter(d => d.id !== id)
 		setDice(updatedDice)
+		setShowDie(null)
 	}
 	
 

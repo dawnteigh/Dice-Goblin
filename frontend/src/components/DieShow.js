@@ -4,18 +4,18 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const DieShow = ({ die }) => {
+const DieShow = ({ die, update }) => {
   const { id, description, image_url, total_rolls, average_roll, values } = die
 
   const buttons = values.map(v => {
     return (
-      <DieButton key={v.id} val={v} />
+      <DieButton key={v.id} val={v} dieId={id} update={update} />
     )}
   )
 
   const rollTotals = values.map(v => {
     return (
-      <p><b>{v.value}</b>: {v.times_rolled}</p>
+      <p key={v.id} ><b>{v.value}</b>: {v.times_rolled}</p>
     )
   })
 

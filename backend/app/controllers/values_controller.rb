@@ -16,7 +16,7 @@ class ValuesController < ApplicationController
         value.update(times_rolled: params[:times_rolled])
         die.update_total
         die.update_avg
-        value.to_json
+        die.to_json(include: :values)
     end
 
 

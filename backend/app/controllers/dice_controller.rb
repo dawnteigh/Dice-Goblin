@@ -22,7 +22,8 @@ class DiceController < ApplicationController
 
     # Edit desc and image
     patch '/dice/:id' do
-        updated_die = Die.find(params[:id]).update(
+        updated_die = Die.find(params[:id])
+        updated_die.update(
             description: params[:description],
             image_url: params[:image_url]
             )
@@ -31,7 +32,8 @@ class DiceController < ApplicationController
 
     # Delete a die and its values
     delete '/dice/:id' do
-        Value.delete_all(die_id: params[:id])
+        deleted_values = Value.where(die_id: params[:id])
+        deleted_values.delete_all
         deleted_die = Die.find(params[:id])
         deleted_die.destroy
         deleted_die.to_json

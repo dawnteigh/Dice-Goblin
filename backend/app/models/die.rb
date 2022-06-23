@@ -23,7 +23,7 @@ class Die < ActiveRecord::Base
     
     def update_avg
         avg = self.values.map{ |v| v.value * v.times_rolled }.sum / self.total_rolls.to_f
-        self.update(average_roll: avg)
+        self.update(average_roll: avg.round(2))
     end
 
 end
