@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  position: fixed;
+}
+
+.navBar {
+  padding-bottom: 3%;
 }
 
 .navTab {
@@ -25,9 +28,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   overflow: auto;
-  height: 85vh;
+  height: 82vh;
 }
 
+/* Works for Chrome */
 ::-webkit-scrollbar {
   display: none;
 }
