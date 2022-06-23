@@ -43,7 +43,7 @@ const DieForm = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <input type="text" size="60" name="description" onChange={handleChange} placeholder="Name or short description of your die/dice" /><br/>
-        <input type="text" size="60" name="image_url" onChange={handleChange} placeholder="Image url (optional)" /><br/>
+        <input type="text" size="60" name="image_url" onChange={handleChange} placeholder="Image URL (optional)" /><br/>
         <select name="type_of_die" onChange={handleChange}>
           <option value="">Select Type</option>
           <option value="d4">d4</option>

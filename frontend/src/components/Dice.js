@@ -6,6 +6,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import DieList from './DieList'
 import DieForm from './DieForm'
 import DieShow from './DieShow'
+import EditDie from './EditDie'
 
 const Dice = () => {
 
@@ -34,6 +35,12 @@ const Dice = () => {
                 <Accordion.Header>Roll Selected Die/Dice</Accordion.Header>
                 <Accordion.Body>
                   {showDie ? <DieShow die={showDie} /> : "Select a die to get started!"}
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Edit Selected Die/Dice</Accordion.Header>
+                <Accordion.Body>
+                {showDie ? <EditDie die={showDie} /> : "Select a die to get started!"}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>

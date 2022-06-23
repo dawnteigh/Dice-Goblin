@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Stats = ({ dice }) => {
+const Stats = () => {
   return (
     <div>Stats</div>
   )
