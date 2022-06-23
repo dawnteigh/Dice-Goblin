@@ -7,7 +7,7 @@ import { DiceContext } from "../context/dice";
 
 
 
-const DieList = () => {
+const DieList = ({ handleShowDie }) => {
 
   const { dice } = useContext(DiceContext)
 
@@ -23,7 +23,7 @@ const DieList = () => {
 
   const diceList = searchList.map(d => {
     return (
-        <DieCard key={d.id} die={d} />
+        <DieCard key={d.id} die={d} handleShowDie={handleShowDie} />
     )
   })
 
