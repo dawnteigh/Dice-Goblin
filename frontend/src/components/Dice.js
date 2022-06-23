@@ -9,7 +9,7 @@ import DieShow from './DieShow'
 
 const Dice = () => {
 
-  const [showDie, setShowDie] = useState({})
+  const [showDie, setShowDie] = useState(null)
   //define callback function to setShowDie here and pass it to DieList
   //showDie gets passed to DieShow
   const handleShowDie = (id) => {
@@ -33,7 +33,7 @@ const Dice = () => {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Roll Selected Die/Dice</Accordion.Header>
                 <Accordion.Body>
-                  <DieShow />
+                  {showDie ? <DieShow die={showDie} /> : "Select a die to get started!"}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>

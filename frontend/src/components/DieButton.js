@@ -1,8 +1,13 @@
 import React from 'react'
 
-const DieButton = () => {
+const DieButton = ({ val }) => {
+
+  const { value, times_rolled } = val
   return (
-    <div>DieButton</div>
+    <div>
+      <button>{value}</button><br/>
+      {times_rolled}
+    </div>
   )
 }
 
