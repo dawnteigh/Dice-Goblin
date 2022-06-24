@@ -5,7 +5,7 @@ class Die < ActiveRecord::Base
     def create_values
         if type_of_die == "d%"
             self.update(num_of_values: 10)
-            (0..9).to_a.each{ |val| Value.create(value: val, die_id: self.id) }
+            (0..9).to_a.each{ |val| Value.create(value: val * 10, die_id: self.id) }
         elsif type_of_die == "2d6"
             self.update(num_of_values: 11)
             (2..12).to_a.each{ |val| Value.create(value: val, die_id: self.id) }

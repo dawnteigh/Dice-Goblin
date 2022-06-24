@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { DiceContext } from "../context/dice";
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
-const EditDie = ({ die, setShowDie }) => {
+const EditDie = ({ die, update, setShowDie }) => {
 
 	const { id, description, image_url, type_of_die } = die
 	const { dice, setDice } = useContext(DiceContext)
+	const [show, setShow] = useState(false);
 	const [formData, setFormData] = useState({
     description: description,
     image_url: image_url
@@ -19,17 +22,6 @@ const EditDie = ({ die, setShowDie }) => {
     })
   }
 
-	const handleUpdateDie = (updatedDie) => {
-		const updatedDice = dice.map(d => {
-			if (d.id === updatedDie.id) {
-				return updatedDie;
-			} else {
-				return d;
-			}
-		});
-		setDice(updatedDice);
-	}
-
 	const handleSubmit = (e) => {
     e.preventDefault()
     fetch(`http://localhost:9292/dice/${id}`, {
@@ -43,9 +35,12 @@ const EditDie = ({ die, setShowDie }) => {
       }),
   })
     .then(r => r.json())
-    .then(data => handleUpdateDie(data))
+    .then(data => update(data))
     e.target.reset()
   }
+
+	const handleShow = () => setShow(true)
+	const handleClose = () => setShow(false)
 
 	const handleDelete = (e) => {
 		fetch(`http://localhost:9292/dice/${id}`, {
@@ -55,6 +50,7 @@ const EditDie = ({ die, setShowDie }) => {
 		const updatedDice = dice.filter(d => d.id !== id)
 		setDice(updatedDice)
 		setShowDie(null)
+		handleClose()
 	}
 	
 
@@ -66,7 +62,22 @@ const EditDie = ({ die, setShowDie }) => {
 				<input type="text" size="60" name="image_url" onChange={handleChange} placeholder={image_url} /><br/>
 				<input type="submit" value="Submit Changes" />
 			</form><br/><br/>
-			<button onClick={handleDelete} >Delete</button>
+			<Button onClick={handleShow} >Delete</Button>
+			<Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Alert</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete <b>{description} ({type_of_die})</b> and all statistics tied to it?
+				This action cannot be undone.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Actually, nevermind
+          </Button>
+          <Button variant="primary" onClick={handleDelete}>
+            Yes, delete it
+          </Button>
+        </Modal.Footer>
+      </Modal>
 		</div>
 	)
 }
