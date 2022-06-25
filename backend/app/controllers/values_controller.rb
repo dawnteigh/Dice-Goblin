@@ -9,6 +9,16 @@ class ValuesController < ApplicationController
         Value.where(die_id: params[:id]).to_json
     end
 
+    # Reset all values for a die using its id
+    patch '/values/:id' do
+        die = Die.find(params[:id])
+        values = Value.where(die_id: params[:id])
+        values.update_all(times_rolled: params[:times_rolled])
+        die.update_total
+        die.update_avg
+        die.to_json(include: :values)
+    end
+
     # Update a value onClick, getting :id from the selected die and :value from the button clicked
     patch '/values/:id/:value' do
         die = Die.find(params[:id])

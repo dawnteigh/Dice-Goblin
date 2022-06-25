@@ -34,6 +34,21 @@ const DieShow = ({ die, update }) => {
     .then(() => setLastValue(false))
   }
 
+  const handleReset = (e) => {
+    fetch(`http://localhost:9292/values/${id}`, {
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          times_rolled: 0
+      }),
+  })
+    .then(r => r.json())
+    .then(data => update(data))
+    .then(() => setLastValue(false))
+  }
+
   return (
     <div>
       <Container fluid>
@@ -55,6 +70,7 @@ const DieShow = ({ die, update }) => {
           {buttons}
         </div>
         <button onClick={handleUndo} disabled={!lastValue}>Undo Last Roll</button>
+        <button onClick={handleReset}>Reset All Values</button>
     </div>
   )
 }
