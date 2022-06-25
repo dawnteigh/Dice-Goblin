@@ -1,10 +1,14 @@
 import React from 'react'
 
-const DieButton = ({ val, dieId, update }) => {
+const DieButton = ({ val, dieId, update, setLastValue }) => {
   const { value, times_rolled } = val
 
 
   const handleClick = (e) => {
+    setLastValue({
+      value: value,
+      prevTotal: times_rolled
+    })
     fetch(`http://localhost:9292/values/${dieId}/${value}`, {
       method: "PATCH",
       headers: {

@@ -19,5 +19,4 @@ class ValuesController < ApplicationController
         die.to_json(include: :values)
     end
 
-
 end
