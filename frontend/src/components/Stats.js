@@ -15,6 +15,10 @@ const Stats = () => {
   }, [])
 
   const totalDice = (type) => dice.filter(d => d.type_of_die === type).length
+  const totalRolls = (type) => {
+    const diceOfType = dice.filter(d => d.type_of_die === type)
+    return diceOfType.map(d => d.total_rolls).reduce((a, b) => a + b, 0)
+  }
   const highestAvg = (type) => {
     const eligibleDice = dice.filter(d => d.type_of_die === type && d.total_rolls >= 50)
     const averages = eligibleDice.map(d => d.average_roll)
@@ -39,6 +43,46 @@ const Stats = () => {
     return (
       <p><b>{min}</b><br/><i>{desc}</i></p>
       )
+  }
+
+  const maxValPer = (type) => {
+    const eligibleDice = dice.filter(d => d.type_of_die === type && d.total_rolls >= 50)
+    if (eligibleDice.length === 0) {
+      return "N/A"
+    } else {
+      const maxValues = eligibleDice.map(d => {
+        return [d.description, d.total_rolls, d.values]
+        }
+      )
+      const timesRolledArr = maxValues.map(d => d[2][d[2].length - 1].times_rolled)
+      const max = Math.max(...timesRolledArr)
+      const maxArr = maxValues.find(arr => arr[2][arr[2].length - 1].times_rolled === max)
+      const percentage = Math.round(((max / maxArr[1]) * 100) * 100) / 100 
+      const desc = maxArr[0]
+      return (
+        <p><b>{percentage}%</b><br/><i>{desc}</i></p>
+      )
+    }
+  }
+
+  const minValPer = (type) => {
+    const eligibleDice = dice.filter(d => d.type_of_die === type && d.total_rolls >= 50)
+    if (eligibleDice.length === 0) {
+      return "N/A"
+    } else {
+      const minValues = eligibleDice.map(d => {
+        return [d.description, d.total_rolls, d.values]
+        }
+      )
+      const timesRolledArr = minValues.map(d => d[2][0].times_rolled)
+      const min = Math.min(...timesRolledArr)
+      const minArr = minValues.find(arr => arr[2][0].times_rolled === min)
+      const percentage = Math.round(((min / minArr[1]) * 100) * 100) / 100 
+      const desc = minArr[0]
+      return (
+        <p><b>{percentage}%</b><br/><i>{desc}</i></p>
+      )
+    }
   }
 
   return (
@@ -70,6 +114,17 @@ const Stats = () => {
       <td>{totalDice("2d6")}</td>
     </tr>
     <tr>
+      <td># of Rolls</td>
+      <td>{totalRolls("d4")}</td>
+      <td>{totalRolls("d6")}</td>
+      <td>{totalRolls("d8")}</td>
+      <td>{totalRolls("d10")}</td>
+      <td>{totalRolls("d%")}</td>
+      <td>{totalRolls("d12")}</td>
+      <td>{totalRolls("d20")}</td>
+      <td>{totalRolls("2d6")}</td>
+    </tr>
+    <tr>
       <td>Highest Average<br/>
       (min. 50 rolls)</td>
       <td>{highestAvg("d4")}</td>
@@ -92,6 +147,30 @@ const Stats = () => {
       <td>{lowestAvg("d12")}</td>
       <td>{lowestAvg("d20")}</td>
       <td>{lowestAvg("2d6")}</td>
+    </tr>
+    <tr>
+      <td>Maximum Roll Percentage<br/>
+      (min. 50 rolls)</td>
+      <td>{maxValPer("d4")}</td>
+      <td>{maxValPer("d6")}</td>
+      <td>{maxValPer("d8")}</td>
+      <td>{maxValPer("d10")}</td>
+      <td>{maxValPer("d%")}</td>
+      <td>{maxValPer("d12")}</td>
+      <td>{maxValPer("d20")}</td>
+      <td>{maxValPer("2d6")}</td>
+    </tr>
+    <tr>
+      <td>Minimum Roll Percentage<br/>
+      (min. 50 rolls)</td>
+      <td>{minValPer("d4")}</td>
+      <td>{minValPer("d6")}</td>
+      <td>{minValPer("d8")}</td>
+      <td>{minValPer("d10")}</td>
+      <td>{minValPer("d%")}</td>
+      <td>{minValPer("d12")}</td>
+      <td>{minValPer("d20")}</td>
+      <td>{minValPer("2d6")}</td>
     </tr>
   </tbody>
 </Table>

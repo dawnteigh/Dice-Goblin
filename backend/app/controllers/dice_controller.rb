@@ -1,7 +1,7 @@
 class DiceController < ApplicationController
     # Get all dice, to render in a list view
     get '/dice' do
-        Die.all.to_json
+        Die.all.to_json(include: :values)
     end
 
     # Get a single die using its id for a show page, which will use the response values to create buttons to update said values
