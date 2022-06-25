@@ -24,7 +24,7 @@ const DieShow = ({ die, update }) => {
       <Container fluid>
         <Row>
           <Col>
-            <img className="showImg" src={image_url} /><br/>
+            <img className="thumbnail" src={image_url} /><br/>
           </Col>
           <Col>
             <b>{description}</b><br/>

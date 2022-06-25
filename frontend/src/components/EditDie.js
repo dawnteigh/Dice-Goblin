@@ -65,7 +65,7 @@ const EditDie = ({ die, update, setShowDie }) => {
 			<Button onClick={handleShow} >Delete</Button>
 			<Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Alert</Modal.Title>
+          <Modal.Title>Dice Goblin says:</Modal.Title>
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete <b>{description} ({type_of_die})</b> and all statistics tied to it?
 				This action cannot be undone.</Modal.Body>

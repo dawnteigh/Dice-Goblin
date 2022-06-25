@@ -3,8 +3,6 @@ import NavBar from './NavBar';
 import Home from './Home';
 import Dice from './Dice';
 import Stats from './Stats';
-// import {AdvancedImage} from '@cloudinary/react';
-// import {Cloudinary} from "@cloudinary/url-gen";
 import { useContext, useEffect } from 'react';
 import { Route, Switch } from "react-router-dom";
 import { DiceContext } from "../context/dice";
