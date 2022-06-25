@@ -5,7 +5,7 @@ const DieCard = ({ die, handleShowDie }) => {
 
   const { description, type_of_die, average_roll, image_url, id } = die
   return (
-    <Card className="card" onClick={(e) => handleShowDie(id)} >
+    <Card variant="dark" className="card" onClick={(e) => handleShowDie(id)} >
       <Card.Img variant="top" src={image_url} alt={description} className="thumbnail"/>
       <Card.Text>
         <b>{description}</b>

@@ -78,3 +78,26 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.stats {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topTable {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topTable tbody td:nth-child(odd) {
+  text-align: left;
+  color: #65e6f7;
+  font-weight: bold;
+}
+
+.bottomTable tbody td:nth-child(1) {
+  color: #65e6f7;
+  font-weight: bold;
+}
