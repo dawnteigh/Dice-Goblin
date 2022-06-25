@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DiceContext } from "../context/dice";
+
 
 const Stats = () => {
+
+  const { dice } = useContext(DiceContext)
+
   return (
-    <div>Stats</div>
+    <div></div>
   )
 }
 
