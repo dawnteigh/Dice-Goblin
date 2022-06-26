@@ -7,7 +7,7 @@ const DieCard = ({ die, showDie, handleShowDie }) => {
   return (
     <Card 
     onClick={(e) => handleShowDie(id)}
-    style={ (showDie.id === id) ? {borderWidth: "3px", borderStyle: "solid", borderColor: "#65e6f7"} : null }
+    style={ (showDie && showDie.id === id) ? {borderWidth: "3px", borderStyle: "solid", borderColor: "#65e6f7"} : null }
     >
       <Card.Img variant="top" src={image_url} alt={description} className="thumbnail"/>
       <Card.Text>
