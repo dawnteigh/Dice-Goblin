@@ -64,7 +64,7 @@ const DieForm = () => {
         <input type="text" size="60" name="description" onChange={handleChange} placeholder="Name or short description of your die/dice" /><br/>
         <input type="text" size="60" name="image_url" onChange={handleChange} placeholder="Image URL (optional)" /><br/>
         {/* Would like to put a photo upload widget in here someday */}
-        <select name="type_of_die" onChange={handleChange}>
+        <select name="type_of_die" onChange={handleChange} style={{ marginRight: "5%" }}>
           <option value="">Select Type</option>
           <option value="d4">d4</option>
           <option value="d6">d6</option>
@@ -74,17 +74,17 @@ const DieForm = () => {
           <option value="d12">d12</option>
           <option value="d20">d20</option>
           <option value="2d6">2d6</option>
-        </select><br/>
+        </select>
         <input className="button" type="submit" value="Add" />
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Dice Goblin says:</Modal.Title>
         </Modal.Header>
         <Modal.Body>{message}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <button className="button" onClick={handleClose}>
             Okay, sorry
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
       </form>

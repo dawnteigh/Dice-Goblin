@@ -2,12 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import DieCard from './DieCard'
 import { DiceContext } from "../context/dice";
 
-
-
-
-
-
-const DieList = ({ handleShowDie }) => {
+const DieList = ({ handleShowDie, showDie }) => {
 
   const { dice } = useContext(DiceContext)
 
@@ -23,7 +18,7 @@ const DieList = ({ handleShowDie }) => {
 
   const diceList = searchList.map(d => {
     return (
-        <DieCard key={d.id} die={d} handleShowDie={handleShowDie} />
+        <DieCard key={d.id} die={d} showDie={showDie} handleShowDie={handleShowDie} />
     )
   })
 
@@ -39,8 +34,7 @@ const DieList = ({ handleShowDie }) => {
 
   return (
     <div>
-      <input onChange={(e) => setSearch(e.target.value)} type="text" style={{ width: "85%" }} placeholder="Search dice by description" />
-      <select onChange={handleFilterChange}>
+      <select onChange={handleFilterChange} >
         <option value="all">All Dice</option>
         <option value="d4">d4</option>
         <option value="d6">d6</option>
@@ -51,6 +45,7 @@ const DieList = ({ handleShowDie }) => {
         <option value="d20">d20</option>
         <option value="2d6">2d6</option>
       </select>
+      <input onChange={(e) => setSearch(e.target.value)} type="text" size="52" placeholder="Search dice by description" />
       <div className="diceGrid">
           {dice.length === 0 ? "You currently have no dice to speak of. Click 'Add New Die/Dice' to get started!" : diceList}
       </div>

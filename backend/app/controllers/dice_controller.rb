@@ -27,7 +27,7 @@ class DiceController < ApplicationController
             description: params[:description],
             image_url: params[:image_url]
             )
-        updated_die.to_json
+        updated_die.to_json(include: :values)
     end
 
     # Delete a die and its values

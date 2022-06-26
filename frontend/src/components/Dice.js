@@ -59,7 +59,7 @@ const Dice = () => {
             </Accordion>
             </Col>
             <Col>
-              <DieList handleShowDie={handleShowDie} />
+              <DieList handleShowDie={handleShowDie} showDie={showDie} />
             </Col>
           </Row>
         </Container>

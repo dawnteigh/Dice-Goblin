@@ -62,20 +62,20 @@ const EditDie = ({ die, update, setShowDie }) => {
 				<input type="text" size="60" name="image_url" onChange={handleChange} placeholder={image_url} /><br/>
 				<input type="submit" className="button" value="Submit Changes" />
 			</form><br/><br/>
-			<Button onClick={handleShow} >Delete</Button>
-			<Modal show={show} onHide={handleClose}>
+			<button className="button" onClick={handleShow} >Delete</button>
+			<Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Dice Goblin says:</Modal.Title>
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete <b>{description} ({type_of_die})</b> and all statistics tied to it?
 				This action cannot be undone.</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <button className="button" onClick={handleClose}>
             Actually, nevermind
-          </Button>
-          <Button variant="primary" onClick={handleDelete}>
+          </button>
+          <button className="button" onClick={handleDelete}>
             Yes, delete it
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
 		</div>

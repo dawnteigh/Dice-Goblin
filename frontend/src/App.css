@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  /* color: #65e6f7; */
   background-color: #202025;
   height: 100vh;
   overflow: hidden;
@@ -43,6 +42,10 @@
   border: solid 3px #65e6f7;
 }
 
+.container {
+  background-color: #202025;
+}
+
 .accordion-button {
   background-color: #110e35;
   color: #65e6f7;
@@ -56,23 +59,22 @@
 .accordion-body {
   background-color: #212529;
   color:white;
+  border:#110e35 solid 3px;
 }
 
 input[type=text] {
   background-color: #2c3034;
   color: #65e6f7;
-  border-color: #65e6f7;
+  border: 1px #65e6f7;
+  border-style: none none solid solid;
+  border-radius: 10px 5px 10px 5px;
+  padding: 1%;
+  margin-bottom: 1%;
   font-family: monospace, 'Courier New', Courier;
+  
 }
 
-select {
-  background-color: #65e6f7;
-  border-color: #65e6f7;
-  width: auto;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-}
-
-.button {
+select, .button {
   font-family: monospace, 'Courier New', Courier;
   font-size: 16px;
   letter-spacing: 2px;
@@ -81,13 +83,17 @@ select {
   color: #65e6f7;
   background-color: #110e35;
   cursor: pointer;
-  border: 3px solid;
+  border: 2px solid;
   padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  box-shadow: 1px 1px 0px 0px #110e35, 2px 2px 0px 0px #110e35, 3px 3px 0px 0px #110e35, 4px 4px 0px 0px #110e35, 5px 5px 0px 0px ;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+select {
+  margin-right: 5%;
 }
 
 .button:active {
@@ -112,7 +118,8 @@ select {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   overflow: auto;
-  height: 86vh;
+  height: 82vh;
+  margin-top: 2%;
 }
 
 /* Works for Chrome */
@@ -124,12 +131,19 @@ select {
   cursor: pointer;
   background-color: #110e35;
   color:white;
+  border-radius: 0%;
 }
 
-.thumbnail {
+.thumbnail, .showImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0%;
+}
+
+.showImg {
+  box-shadow: 1px 1px 0px 0px #110e35, 2px 2px 0px 0px #110e35, 3px 3px 0px 0px #110e35, 4px 4px 0px 0px #110e35, 5px 5px 0px 0px #65e6f7;
+  border: 2px solid #65e6f7;
 }
 
 .valueGrid {
@@ -166,4 +180,20 @@ select {
 .bottomTable tbody td:nth-child(1) {
   color: #65e6f7;
   font-weight: bold;
+}
+
+.modal {
+  color: white;
+}
+
+.modal-header {
+  background-color: #110e35;
+}
+
+.modal-body, .modal-footer {
+  background-color: #212529;
+}
+
+.btn-close {
+  color: white;
 }
