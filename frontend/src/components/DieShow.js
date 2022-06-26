@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { DiceContext } from "../context/dice";
 import DieButton from './DieButton'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -6,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 const DieShow = ({ die, update }) => {
   const { id, description, image_url, total_rolls, average_roll, values } = die
-  const [lastValue, setLastValue] = useState(false)
+  const { lastValue, setLastValue } = useContext(DiceContext)
   
   
   const buttons = values.map(v => {

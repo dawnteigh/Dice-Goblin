@@ -10,13 +10,14 @@ import DieShow from './DieShow'
 import EditDie from './EditDie'
 
 const Dice = () => {
-  const { dice, setDice } = useContext(DiceContext)
+  const { dice, setDice, setLastValue } = useContext(DiceContext)
   const [showDie, setShowDie] = useState(null)
   
   const handleShowDie = (id) => {
     fetch(`http://localhost:9292/dice/${id}`)
     .then(r => r.json())
     .then(data => setShowDie(data))
+    setLastValue(false)
   }
 
   const handleUpdateDie = (updatedDie) => {
