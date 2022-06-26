@@ -43,6 +43,67 @@
   border: solid 3px #65e6f7;
 }
 
+.accordion-button {
+  background-color: #110e35;
+  color: #65e6f7;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #65e6f7;
+  color: #110e35;
+}
+
+.accordion-body {
+  background-color: #212529;
+  color:white;
+}
+
+input[type=text] {
+  background-color: #2c3034;
+  color: #65e6f7;
+  border-color: #65e6f7;
+  font-family: monospace, 'Courier New', Courier;
+}
+
+select {
+  background-color: #65e6f7;
+  border-color: #65e6f7;
+  width: auto;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+}
+
+
+/* CSS */
+.button {
+  font-family: monospace, 'Courier New', Courier;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #65e6f7;
+  background-color: #110e35;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.25em 0.75em;
+  }
+}
+
 .diceGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -58,6 +119,8 @@
 
 .card {
   cursor: pointer;
+  background-color: #110e35;
+  color:white;
 }
 
 .thumbnail {

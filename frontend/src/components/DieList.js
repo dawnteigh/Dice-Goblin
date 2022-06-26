@@ -39,7 +39,7 @@ const DieList = ({ handleShowDie }) => {
 
   return (
     <div>
-      <input onChange={(e) => setSearch(e.target.value)} type="text" size="60" placeholder="Search dice by description" />
+      <input onChange={(e) => setSearch(e.target.value)} type="text" style={{ width: "85%" }} placeholder="Search dice by description" />
       <select onChange={handleFilterChange}>
         <option value="all">All Dice</option>
         <option value="d4">d4</option>
@@ -52,7 +52,7 @@ const DieList = ({ handleShowDie }) => {
         <option value="2d6">2d6</option>
       </select>
       <div className="diceGrid">
-          {diceList}
+          {dice.length === 0 ? "You currently have no dice to speak of. Click 'Add New Die/Dice' to get started!" : diceList}
       </div>
     </div>
   )

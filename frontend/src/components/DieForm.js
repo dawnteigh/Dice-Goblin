@@ -74,8 +74,8 @@ const DieForm = () => {
           <option value="d12">d12</option>
           <option value="d20">d20</option>
           <option value="2d6">2d6</option>
-        </select>
-        <input type="submit" value="Add" />
+        </select><br/>
+        <input className="button" type="submit" value="Add" />
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Dice Goblin says:</Modal.Title>

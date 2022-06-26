@@ -23,7 +23,7 @@ const DieButton = ({ val, dieId, update, setLastValue }) => {
   }
 
   return (
-      <button onClick={handleClick }>{value}</button>
+      <button className="button" onClick={handleClick }>{value === 0 ? String(value) + "0" : value}</button>
   )
 }
 

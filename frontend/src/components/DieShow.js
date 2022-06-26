@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col'
 const DieShow = ({ die, update }) => {
   const { id, description, image_url, total_rolls, average_roll, values } = die
   const [lastValue, setLastValue] = useState(false)
+  
+  
   const buttons = values.map(v => {
     return (
       <DieButton key={v.id} val={v} dieId={id} update={update} setLastValue={setLastValue} />
@@ -15,7 +17,7 @@ const DieShow = ({ die, update }) => {
 
   const rollTotals = values.map(v => {
     return (
-      <p key={v.id} ><b>{v.value}</b>: {v.times_rolled}</p>
+      <p key={v.id} ><b>{v.value === 0 ? String(v.value) + "0" : v.value}</b>: {v.times_rolled}</p>
     )
   })
 
@@ -69,8 +71,8 @@ const DieShow = ({ die, update }) => {
         <div className="buttonDiv">
           {buttons}
         </div>
-        <button onClick={handleUndo} disabled={!lastValue}>Undo Last Roll</button>
-        <button onClick={handleReset}>Reset All Values</button>
+        <button className="button" onClick={handleUndo} disabled={!lastValue}>Undo Last Roll</button>
+        <button className="button" onClick={handleReset}>Reset All Values</button>
     </div>
   )
 }

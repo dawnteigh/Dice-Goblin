@@ -60,7 +60,7 @@ const EditDie = ({ die, update, setShowDie }) => {
 			<form onSubmit={handleSubmit} >
 				<input type="text" size="60" name="description" onChange={handleChange} placeholder={description} /><br/>
 				<input type="text" size="60" name="image_url" onChange={handleChange} placeholder={image_url} /><br/>
-				<input type="submit" value="Submit Changes" />
+				<input type="submit" className="button" value="Submit Changes" />
 			</form><br/><br/>
 			<Button onClick={handleShow} >Delete</Button>
 			<Modal show={show} onHide={handleClose}>

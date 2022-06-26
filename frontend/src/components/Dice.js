@@ -36,7 +36,7 @@ const Dice = () => {
         <Container fluid>
           <Row>
             <Col>
-            <Accordion defaultActiveKey="0" flush>
+            <Accordion defaultActiveKey="1" flush>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Add New Die/Dice</Accordion.Header>
                 <Accordion.Body>
