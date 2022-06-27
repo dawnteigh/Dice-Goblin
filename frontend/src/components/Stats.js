@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DiceContext } from "../context/dice";
 import Table from 'react-bootstrap/Table';
+import Tooltip from 'react-bootstrap/Tooltip'
 
 
 const Stats = () => {
@@ -128,73 +129,73 @@ const Stats = () => {
         <tbody>
           <tr>
             <td># of Dice</td>
-            <td>{totalDice("d4")}</td>
-            <td>{totalDice("d6")}</td>
-            <td>{totalDice("d8")}</td>
-            <td>{totalDice("d10")}</td>
-            <td>{totalDice("d%")}</td>
-            <td>{totalDice("d12")}</td>
-            <td>{totalDice("d20")}</td>
-            <td>{totalDice("2d6")}</td>
+            <td title="# of d4 in Your Collection">{totalDice("d4")}</td>
+            <td title="# of d6 in Your Collection">{totalDice("d6")}</td>
+            <td title="# of d8 in Your Collection">{totalDice("d8")}</td>
+            <td title="# of d10 in Your Collection">{totalDice("d10")}</td>
+            <td title="# of d% in Your Collection">{totalDice("d%")}</td>
+            <td title="# of d12 in Your Collection">{totalDice("d12")}</td>
+            <td title="# of d20 in Your Collection">{totalDice("d20")}</td>
+            <td title="# of 2d6 in Your Collection">{totalDice("2d6")}</td>
           </tr>
           <tr>
             <td># of Rolls</td>
-            <td>{totalRolls("d4")}</td>
-            <td>{totalRolls("d6")}</td>
-            <td>{totalRolls("d8")}</td>
-            <td>{totalRolls("d10")}</td>
-            <td>{totalRolls("d%")}</td>
-            <td>{totalRolls("d12")}</td>
-            <td>{totalRolls("d20")}</td>
-            <td>{totalRolls("2d6")}</td>
+            <td title={`Combined Total Rolls for All d4`}>{totalRolls("d4")}</td>
+            <td title={`Combined Total Rolls for All d6`}>{totalRolls("d6")}</td>
+            <td title={`Combined Total Rolls for All d8`}>{totalRolls("d8")}</td>
+            <td title={`Combined Total Rolls for All d10`}>{totalRolls("d10")}</td>
+            <td title={`Combined Total Rolls for All d%`}>{totalRolls("d%")}</td>
+            <td title={`Combined Total Rolls for All d12`}>{totalRolls("d12")}</td>
+            <td title={`Combined Total Rolls for All d20`}>{totalRolls("d20")}</td>
+            <td title={`Combined Total Rolls for All 2d6`}>{totalRolls("2d6")}</td>
           </tr>
           <tr>
             <td>Highest Average<br/>
             (min. 50 rolls)</td>
-            <td>{highestAvg("d4")}</td>
-            <td>{highestAvg("d6")}</td>
-            <td>{highestAvg("d8")}</td>
-            <td>{highestAvg("d10")}</td>
-            <td>{highestAvg("d%")}</td>
-            <td>{highestAvg("d12")}</td>
-            <td>{highestAvg("d20")}</td>
-            <td>{highestAvg("2d6")}</td>
+            <td title={`The d4 with the Highest Average Roll`}>{highestAvg("d4")}</td>
+            <td title={`The d6 with the Highest Average Roll`}>{highestAvg("d6")}</td>
+            <td title={`The d8 with the Highest Average Roll`}>{highestAvg("d8")}</td>
+            <td title={`The d10 with the Highest Average Roll`}>{highestAvg("d10")}</td>
+            <td title={`The d% with the Highest Average Roll`}>{highestAvg("d%")}</td>
+            <td title={`The d12 with the Highest Average Roll`}>{highestAvg("d12")}</td>
+            <td title={`The d20 with the Highest Average Roll`}>{highestAvg("d20")}</td>
+            <td title={`The 2d6 with the Highest Average Roll`}>{highestAvg("2d6")}</td>
           </tr>
           <tr>
             <td>Lowest Average<br/>
             (min. 50 rolls)</td>
-            <td>{lowestAvg("d4")}</td>
-            <td>{lowestAvg("d6")}</td>
-            <td>{lowestAvg("d8")}</td>
-            <td>{lowestAvg("d10")}</td>
-            <td>{lowestAvg("d%")}</td>
-            <td>{lowestAvg("d12")}</td>
-            <td>{lowestAvg("d20")}</td>
-            <td>{lowestAvg("2d6")}</td>
+            <td title={`The d4 with the Lowest Average Roll`}>{lowestAvg("d4")}</td>
+            <td title={`The d6 with the Lowest Average Roll`}>{lowestAvg("d6")}</td>
+            <td title={`The d8 with the Lowest Average Roll`}>{lowestAvg("d8")}</td>
+            <td title={`The d10 with the Lowest Average Roll`}>{lowestAvg("d10")}</td>
+            <td title={`The d% with the Lowest Average Roll`}>{lowestAvg("d%")}</td>
+            <td title={`The d12 with the Lowest Average Roll`}>{lowestAvg("d12")}</td>
+            <td title={`The d20 with the Lowest Average Roll`}>{lowestAvg("d20")}</td>
+            <td title={`The 2d6 with the Lowest Average Roll`}>{lowestAvg("2d6")}</td>
           </tr>
           <tr>
             <td>Maximum Roll Percentage<br/>
             (min. 50 rolls)</td>
-            <td>{maxValPer("d4")}</td>
-            <td>{maxValPer("d6")}</td>
-            <td>{maxValPer("d8")}</td>
-            <td>{maxValPer("d10")}</td>
-            <td>{maxValPer("d%")}</td>
-            <td>{maxValPer("d12")}</td>
-            <td>{maxValPer("d20")}</td>
-            <td>{maxValPer("2d6")}</td>
+            <td title={`Highest Percentage of "4" Rolls`}>{maxValPer("d4")}</td>
+            <td title={`Highest Percentage of "6" Rolls`}>{maxValPer("d6")}</td>
+            <td title={`Highest Percentage of "8" Rolls`}>{maxValPer("d8")}</td>
+            <td title={`Highest Percentage of "0" Rolls`}>{maxValPer("d10")}</td>
+            <td title={`Highest Percentage of "90" Rolls`}>{maxValPer("d%")}</td>
+            <td title={`Highest Percentage of "12" Rolls`}>{maxValPer("d12")}</td>
+            <td title={`Highest Percentage of "20" Rolls`}>{maxValPer("d20")}</td>
+            <td title={`Highest Percentage of "12" Rolls`}>{maxValPer("2d6")}</td>
           </tr>
           <tr>
             <td>Minimum Roll Percentage<br/>
             (min. 50 rolls)</td>
-            <td>{minValPer("d4")}</td>
-            <td>{minValPer("d6")}</td>
-            <td>{minValPer("d8")}</td>
-            <td>{minValPer("d10")}</td>
-            <td>{minValPer("d%")}</td>
-            <td>{minValPer("d12")}</td>
-            <td>{minValPer("d20")}</td>
-            <td>{minValPer("2d6")}</td>
+            <td title={`Highest Percentage of "1" Rolls`}>{minValPer("d4")}</td>
+            <td title={`Highest Percentage of "1" Rolls`}>{minValPer("d6")}</td>
+            <td title={`Highest Percentage of "1" Rolls`}>{minValPer("d8")}</td>
+            <td title={`Highest Percentage of "1" Rolls`}>{minValPer("d10")}</td>
+            <td title={`Highest Percentage of "00" Rolls`}>{minValPer("d%")}</td>
+            <td title={`Highest Percentage of "1" Rolls`}>{minValPer("d12")}</td>
+            <td title={`Highest Percentage of "1" Rolls`}>{minValPer("d20")}</td>
+            <td title={`Highest Percentage of "2" Rolls`}>{minValPer("2d6")}</td>
           </tr>
         </tbody>
       </Table>

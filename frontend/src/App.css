@@ -151,6 +151,13 @@ select {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.wisdom {
+  color: #65e6f7;
+  text-align: left;
+  font-style: italic;
+  font-size: small;
+}
+
 .buttonDiv {
   padding: 5%;
   margin-left: 30%;
