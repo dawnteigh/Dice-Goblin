@@ -21,8 +21,20 @@ const DieShow = ({ die, update }) => {
     )
   })
 
+  const statAvg = (values[0].value + values[values.length - 1].value) / 2
+  const avgStyle = (d) => {
+    if (d.total_rolls === 0) {
+      return "white"
+    }
+    else if (d.average_roll > statAvg) {
+      return "green"
+    }
+    else if (d.average_roll < statAvg) {
+      return "red"
+    } 
+  }
+
   const dieWisdom = (d) => {
-    const statAvg = (d.values[0].value + d.values[d.values.length - 1].value) / 2
     const wisdom = `* The statistical average for ${d.type_of_die} is ${statAvg}`
     if (d.type_of_die === "d10") {
       return (
@@ -80,7 +92,7 @@ const DieShow = ({ die, update }) => {
           <Col>
             <b>{description}</b><br/>
             Total Rolls: {total_rolls}<br/>
-            Average Roll: {average_roll}<br/>
+            Average Roll: <span style={{color: avgStyle(die)}}>{average_roll}</span><br/>
             <div className="valueGrid">
               {rollTotals}
             </div>
