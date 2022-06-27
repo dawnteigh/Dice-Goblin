@@ -75,7 +75,7 @@ const Stats = () => {
         }
       )
       const timesRolledArr = minValues.map(d => d[2][0].times_rolled)
-      const min = Math.min(...timesRolledArr)
+      const min = Math.max(...timesRolledArr)
       const minArr = minValues.find(arr => arr[2][0].times_rolled === min)
       const percentage = Math.round(((min / minArr[1]) * 100) * 100) / 100 
       const desc = minArr[0]
