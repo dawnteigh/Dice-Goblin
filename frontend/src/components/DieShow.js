@@ -73,7 +73,7 @@ const DieShow = ({ die, update }) => {
           {buttons}
         </div>
         <button className="button" onClick={handleUndo} disabled={!lastValue}>Undo Last Roll</button>
-        <button className="button" onClick={handleReset}>Reset All Values</button>
+        <button className="button" onClick={handleReset} disabled={!total_rolls}>Reset All Values</button>
     </div>
   )
 }
