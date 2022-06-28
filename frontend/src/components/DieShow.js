@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const DieShow = ({ die, update }) => {
-  const { id, description, image_url, total_rolls, average_roll, values } = die
+  const { id, description, type_of_die, image_url, total_rolls, average_roll, num_of_values, values } = die
   const { lastValue, setLastValue } = useContext(DiceContext)
   const [showP, setShowP] = useState(false)
   
@@ -23,12 +23,49 @@ const DieShow = ({ die, update }) => {
   })
 
   const rollPercentages = values.map(v => {
+    let percAvg = Math.round(((1 / num_of_values) * 10) * 100) / 10
+    const valAvg = Math.round(((v.times_rolled / total_rolls) * 10) * 100) / 10
+    if (type_of_die === "2d6") {
+      switch (v.value) {
+        case 7:
+          percAvg = 16.67
+          break;
+        case 6 || 8:
+          percAvg = 13.89
+          break;
+        case 5 || 9:
+          percAvg = 11.11
+          break;
+        case 4 || 10:
+          percAvg = 8.33
+          break;
+        case 3 || 11:
+          percAvg = 5.56
+          break;
+        case 2 || 12:
+          percAvg = 2.78
+         break;
+      }
+    }
+    const percStyle = (avg) => {
+      if (avg === 0 || avg === percAvg) {
+        return "white"
+      }
+      else if (avg > percAvg) {
+        return "green"
+      }
+      else if (avg < percAvg) {
+        return "red"
+      } 
+    }
     return (
-      <p key={v.id} ><span className='values'>{v.value === 0 ? String(v.value) + "0" : v.value}</span>: {Math.round(((v.times_rolled / total_rolls) * 10) * 100) / 10}%</p>
+      <p key={v.id} ><span className='values'>{v.value === 0 ? String(v.value) + "0" : v.value}</span>:
+      <span style={{ color: percStyle(valAvg) }}> {valAvg}%</span></p>
     )
     })
 
   const statAvg = (values[0].value + values[values.length - 1].value) / 2
+  
   const avgStyle = (d) => {
     if (d.total_rolls === 0) {
       return "white"
@@ -51,6 +88,11 @@ const DieShow = ({ die, update }) => {
     else if (d.type_of_die === "d%") {
       return (
       <p>{wisdom}<br/><br/>** 00 is treated as the lowest value here because 9 times out of 10, it is</p>
+      )
+    } 
+    else if (d.type_of_die === "2d6") {
+      return (
+        <p>{wisdom}<br/>** 2d6 Roll Probabilities are as follows: 7 (16.67%), 6 & 8 (13.89%), 5 & 9 (11.11%), 4 & 10 (8.33%), 3 & 11 (5.56%), 2 & 12 (2.78%)</p>
       )
     } else {
       return (
