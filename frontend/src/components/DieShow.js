@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { DiceContext } from "../context/dice";
 import DieButton from './DieButton'
 import Container from 'react-bootstrap/Container'
@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col'
 const DieShow = ({ die, update }) => {
   const { id, description, image_url, total_rolls, average_roll, values } = die
   const { lastValue, setLastValue } = useContext(DiceContext)
+  const [showP, setShowP] = useState(false)
   
   const buttons = values.map(v => {
     return (
@@ -17,9 +18,15 @@ const DieShow = ({ die, update }) => {
 
   const rollTotals = values.map(v => {
     return (
-      <p key={v.id} ><b>{v.value === 0 ? String(v.value) + "0" : v.value}</b> : {v.times_rolled}</p>
+      <p key={v.id} ><span className='values'>{v.value === 0 ? String(v.value) + "0" : v.value}</span>: {v.times_rolled}</p>
     )
   })
+
+  const rollPercentages = values.map(v => {
+    return (
+      <p key={v.id} ><span className='values'>{v.value === 0 ? String(v.value) + "0" : v.value}</span>: {Math.round(((v.times_rolled / total_rolls) * 10) * 100) / 10}%</p>
+    )
+    })
 
   const statAvg = (values[0].value + values[values.length - 1].value) / 2
   const avgStyle = (d) => {
@@ -93,8 +100,8 @@ const DieShow = ({ die, update }) => {
             <b>{description}</b><br/>
             Total Rolls: {total_rolls}<br/>
             Average Roll: <span style={{color: avgStyle(die)}}>{average_roll}</span><br/>
-            <div className="valueGrid">
-              {rollTotals}
+            <div className="valueGrid" onClick={(e) => setShowP(!showP)}>
+              {!showP ? rollTotals : rollPercentages}
             </div>
             <div className='wisdom'>
               {dieWisdom(die)}

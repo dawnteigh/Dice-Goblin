@@ -37,26 +37,28 @@ const Dice = () => {
         <Container fluid>
           <Row>
             <Col>
-            <Accordion defaultActiveKey="1" flush>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Add New Die/Dice</Accordion.Header>
-                <Accordion.Body>
-                  <DieForm />
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>Roll Selected Die/Dice</Accordion.Header>
-                <Accordion.Body>
-                  {showDie ? <DieShow die={showDie} update={handleUpdateDie} /> : "Select a die to get started!"}
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2">
-                <Accordion.Header>Edit Selected Die/Dice</Accordion.Header>
-                <Accordion.Body>
-                {showDie ? <EditDie die={showDie} update={handleUpdateDie} setShowDie={setShowDie} /> : "Select a die to get started!"}
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
+              <div className='accDiv'>
+                <Accordion defaultActiveKey="1" flush>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header>Add New Die/Dice</Accordion.Header>
+                    <Accordion.Body>
+                      <DieForm />
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="1">
+                    <Accordion.Header>Roll Selected Die/Dice</Accordion.Header>
+                    <Accordion.Body>
+                      {showDie ? <DieShow die={showDie} update={handleUpdateDie} /> : "Select a die to get started!"}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="2">
+                    <Accordion.Header>Edit Selected Die/Dice</Accordion.Header>
+                    <Accordion.Body>
+                    {showDie ? <EditDie die={showDie} update={handleUpdateDie} setShowDie={setShowDie} /> : "Select a die to get started!"}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              </div>
             </Col>
             <Col>
               <DieList handleShowDie={handleShowDie} showDie={showDie} />

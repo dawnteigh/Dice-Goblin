@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { DiceContext } from "../context/dice";
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 
 const EditDie = ({ die, update, setShowDie }) => {
 

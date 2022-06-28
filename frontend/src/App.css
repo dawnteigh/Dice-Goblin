@@ -46,9 +46,23 @@
   background-color: #202025;
 }
 
+.accDiv {
+  overflow: auto;
+  height: 89vh;
+}
+
+.accordion {
+  background-color: #110e35;
+  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
+  border:#110e35 solid 3px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
 .accordion-button {
   background-color: #110e35;
   color: #65e6f7;
+  
 }
 
 .accordion-button:not(.collapsed) {
@@ -59,7 +73,6 @@
 .accordion-body {
   background-color: #212529;
   color:white;
-  border:#110e35 solid 3px;
 }
 
 input[type=text] {
@@ -120,6 +133,8 @@ select {
   overflow: auto;
   height: 82vh;
   margin-top: 2%;
+  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
+
 }
 
 /* Works for Chrome */
@@ -146,9 +161,15 @@ select {
   border: 2px solid #65e6f7;
 }
 
+.values {
+  color: #65e6f7;
+  font-weight: bold;
+}
+
 .valueGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  cursor: pointer;
 }
 
 .wisdom {
