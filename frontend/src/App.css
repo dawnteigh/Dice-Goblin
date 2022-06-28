@@ -5,25 +5,34 @@
   overflow: hidden;
 }
 
+h5 {
+  color: #65e6f7;
+  font-family: monospace, 'Courier New', Courier;
+  text-transform: uppercase;
+}
+
 .navBar {
   padding-bottom: 3%;
 }
 
 .navTab {
   display: inline-block;
-  font-size: 12px;
+  font-family: monospace, 'Courier New', Courier;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #65e6f7;
   width: 20%;
   padding: 12px;
   margin: 0;
   background: #110e35;
   text-decoration: none;
-  color: white;
   border-radius: 0% 0% 10% 10%;
   box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
 }
 
 .navTab:hover {
-  color: #65e6f7;
+  color: white;
   box-shadow: rgba(107, 219, 244, 0.35) 0 -25px 18px -14px inset, rgba(107, 219, 244, 0.35) 0 1px 2px, rgba(107, 219, 244, 0.35) 0 2px 4px, rgba(107, 219, 244, 0.35) 0 4px 8px, rgba(107, 219, 244, 0.35) 0 8px 16px, rgba(107, 219, 244, 0.35) 0 16px 32px;
 }
 
@@ -40,6 +49,7 @@
   height: fit-content;
   border-radius: 10%;
   border: solid 3px #65e6f7;
+  box-shadow: rgba(107, 219, 244, 0.35) 0 -25px 18px -14px inset, rgba(107, 219, 244, 0.35) 0 1px 2px, rgba(107, 219, 244, 0.35) 0 2px 4px, rgba(107, 219, 244, 0.35) 0 4px 8px, rgba(107, 219, 244, 0.35) 0 8px 16px, rgba(107, 219, 244, 0.35) 0 16px 32px;
 }
 
 .container {
@@ -134,7 +144,7 @@ select {
   height: 82vh;
   margin-top: 2%;
   box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
-
+  background-color: #212529;
 }
 
 /* Works for Chrome */
@@ -191,8 +201,7 @@ select {
 
 .stats {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  overflow: auto;
 }
 
 .topTable {

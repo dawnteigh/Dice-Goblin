@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DiceContext } from "../context/dice";
 import Table from 'react-bootstrap/Table';
-import Tooltip from 'react-bootstrap/Tooltip'
-
 
 const Stats = () => {
 
@@ -88,6 +86,7 @@ const Stats = () => {
 
   return (
     <div className="stats">
+      <h5>General Stats</h5>
       <Table className="topTable" striped bordered hover size="sm" variant="dark">
         <tbody>
           <tr>
@@ -112,6 +111,7 @@ const Stats = () => {
           </tr>
           </tbody>
       </Table>
+      <h5>Stats by Die Type</h5>
       <Table className="bottomTable" striped bordered hover size="sm" variant="dark">
         <thead>
           <tr>
