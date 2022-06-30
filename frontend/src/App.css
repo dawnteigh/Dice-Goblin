@@ -58,12 +58,12 @@ h5 {
 
 .accDiv {
   overflow: auto;
-  height: 89vh;
+  height: 88vh;
 }
 
 .accordion {
   background-color: #110e35;
-  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
+  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
   border:#110e35 solid 3px;
   border-radius: 10px;
   overflow: auto;
@@ -141,7 +141,7 @@ select {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   overflow: auto;
-  height: 82vh;
+  height: 81vh;
   margin-top: 2%;
   box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
   background-color: #212529;

@@ -32,6 +32,8 @@ You are now ready to start adding dice to your collection and tracking their rol
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Roadmap
+My next goal with Dice Goblin is to allow users to upload images straight to the database, without the need of an image URL. I want the images to be able to be loaded using a file path. A more dynamic stats page is also in the cards.
 
 ## Acknowledgements
 - Image on the 'Home' page is from [PNGWing](https://pngwing.com).

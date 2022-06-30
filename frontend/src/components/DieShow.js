@@ -60,7 +60,7 @@ const DieShow = ({ die, update }) => {
     }
     return (
       <p key={v.id} ><span className='values'>{v.value === 0 ? String(v.value) + "0" : v.value}</span>:
-      <span style={{ color: percStyle(valAvg) }}> {valAvg}%</span></p>
+      <span style={{ color: percStyle(valAvg) }}> {total_rolls === 0 ? 0 : valAvg}%</span></p>
     )
     })
 
