@@ -1,5 +1,5 @@
 class DiceController < ApplicationController
-    # Get all dice, to render in a list view
+    # Get all dice, to save in state and render in a list view
     get '/dice' do
         Die.all.to_json(include: :values)
     end

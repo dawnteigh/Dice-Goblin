@@ -6,7 +6,7 @@ class Value < ActiveRecord::Base
     end
 
     def self.total_natural_twenties
-        Value.all.where(value: 20).map{ |v| v.times_rolled }.sum
+        Die.all.where(type_of_die: "d20").map{ |d| d.values.where(value: 20) }.map{ |v| v[0].times_rolled }.sum
     end
 
     def self.total_natural_ones

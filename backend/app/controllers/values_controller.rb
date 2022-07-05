@@ -29,4 +29,18 @@ class ValuesController < ApplicationController
         die.to_json(include: :values)
     end
 
+    get '/stats' do
+        types = Die.all.map{ |d| d.type_of_die }.uniq
+        type_stat_object = types.map{ |t| {t => Die.type_stats(t)} }.reduce({}, :merge)
+        stat_block = {
+            total_dice: Die.total_dice,
+            total_rolls: Value.total_rolls,
+            total_twenties: Die.total_natural_twenties,
+            total_ones: Die.total_natural_ones,
+            seven_perc: Die.seven_percentage,
+            type_stats: type_stat_object
+        }
+        stat_block.to_json
+      end
+
 end

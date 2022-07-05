@@ -5,10 +5,17 @@
   overflow: hidden;
 }
 
-h5 {
+h1, h5 {
   color: #65e6f7;
   font-family: monospace, 'Courier New', Courier;
   text-transform: uppercase;
+  text-shadow: 4px 2px 4px rgba(101, 230, 247, 0.572);
+  letter-spacing: .5em;
+  margin-bottom: 0%;
+}
+
+h5 {
+  font-size: 1.2em;
 }
 
 .navBar {
