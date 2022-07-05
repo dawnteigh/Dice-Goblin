@@ -53,6 +53,7 @@ const DieForm = () => {
         description: "",
         type_of_die: "",
       }))
+      .catch(err => alert("Could not complete your request. Make sure the server at http://localhost:9292 is running!"))
       e.target.reset()
     }
   }

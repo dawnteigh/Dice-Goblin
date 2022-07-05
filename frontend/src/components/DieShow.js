@@ -114,6 +114,7 @@ const DieShow = ({ die, update }) => {
     .then(r => r.json())
     .then(data => update(data))
     .then(() => setLastValue(false))
+    .catch(err => alert("Could not complete your request. Make sure the server at http://localhost:9292 is running!"))
   }
 
   const handleReset = (e) => {
@@ -129,6 +130,7 @@ const DieShow = ({ die, update }) => {
     .then(r => r.json())
     .then(data => update(data))
     .then(() => setLastValue(false))
+    .catch(err => alert("Could not complete your request. Make sure the server at http://localhost:9292 is running!"))
   }
 
   return (

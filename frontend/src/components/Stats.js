@@ -11,6 +11,7 @@ const Stats = () => {
     fetch('http://localhost:9292/stats')
     .then(r => r.json())
     .then(data => setStats(data))
+    .catch(err => alert("Could not find statistics. Make sure the server at http://localhost:9292 is running!"))
   }, [])
 
   const { total_dice, total_rolls, total_twenties, total_ones, seven_perc, type_stats } = stats

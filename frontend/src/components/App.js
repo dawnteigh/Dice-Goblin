@@ -18,8 +18,8 @@ function App() {
     fetch("http://localhost:9292/dice")
     .then(r => r.json())
     .then(data => setDice(data))
+    .catch(err => alert("Could not access database. Make sure the server at http://localhost:9292 is running!"))
   }, [])
-
 
   return (
     <div className="App">

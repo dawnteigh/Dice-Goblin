@@ -17,6 +17,7 @@ const Dice = () => {
     fetch(`http://localhost:9292/dice/${id}`)
     .then(r => r.json())
     .then(data => setShowDie(data))
+    .catch(err => alert("Could not complete your request. Make sure the server at http://localhost:9292 is running!"))
     setLastValue(false)
   }
 
