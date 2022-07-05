@@ -45,27 +45,30 @@ class Die < ActiveRecord::Base
     def self.seven_percentage
         sevens = Die.all.where(type_of_die: "2d6").map{ |d| d.values.where(value: 7) }.map{ |v| v[0].times_rolled }.sum
         craps_rolls = Die.all.where(type_of_die: "2d6").map{ |d| d.total_rolls }.sum
-        ((sevens / craps_rolls.to_f) * 100).round(2)
+        percentage = ((sevens / craps_rolls.to_f) * 100).round(2)
     end
 
     def self.type_stats(type_of_die)
         qualifying_dice = Die.all.filter{ |d| d.type_of_die == type_of_die && d.total_rolls >= 50 }
-        averages = qualifying_dice.map{ |d| d.average_roll }
-        max_avg_name = qualifying_dice.find{ |d| d.average_roll == averages.max }.description
-        min_avg_name = qualifying_dice.find{ |d| d.average_roll == averages.min }.description
-        top_max_perc = qualifying_dice.map{ |d| ((d.values.last.times_rolled / d.total_rolls.to_f) * 100).round(2) }.max
-        top_min_perc = qualifying_dice.map{ |d| ((d.values.first.times_rolled / d.total_rolls.to_f) * 100).round(2) }.max
-        top_max_name = qualifying_dice.find{ |d| ((d.values.last.times_rolled / d.total_rolls.to_f) * 100).round(2) == top_max_perc }.description
-        top_min_name = qualifying_dice.find{ |d| ((d.values.first.times_rolled / d.total_rolls.to_f) * 100).round(2) == top_min_perc }.description
-        { 
-            max_avg: averages.max,
-            max_avg_name: max_avg_name,
-            min_avg: averages.min,
-            min_avg_name: min_avg_name,
-            max_perc: top_max_perc,
-            max_perc_name: top_max_name,
-            min_perc: top_min_perc,
-            min_perc_name: top_min_name
-        }
+        check = qualifying_dice.empty?
+        if !check
+            averages = qualifying_dice.map{ |d| d.average_roll }
+            max_avg_name = qualifying_dice.find{ |d| d.average_roll == averages.max }.description
+            min_avg_name = qualifying_dice.find{ |d| d.average_roll == averages.min }.description
+            top_max_perc = qualifying_dice.map{ |d| ((d.values.last.times_rolled / d.total_rolls.to_f) * 100).round(2) }.max
+            top_min_perc = qualifying_dice.map{ |d| ((d.values.first.times_rolled / d.total_rolls.to_f) * 100).round(2) }.max
+            top_max_name = qualifying_dice.find{ |d| ((d.values.last.times_rolled / d.total_rolls.to_f) * 100).round(2) == top_max_perc }.description
+            top_min_name = qualifying_dice.find{ |d| ((d.values.first.times_rolled / d.total_rolls.to_f) * 100).round(2) == top_min_perc }.description
+        end
+            { 
+                max_avg: check ? "--" : averages.max,
+                max_avg_name: check ? "No qualifying dice" : max_avg_name,
+                min_avg: check ? "--" : averages.min,
+                min_avg_name: check ? "No qualifying dice" : min_avg_name,
+                max_perc: check ? "--" : top_max_perc,
+                max_perc_name: check ? "No qualifying dice" : top_max_name,
+                min_perc: check ? "--" : top_min_perc,
+                min_perc_name: check ? "No qualifying dice" : top_min_name
+            }
     end
 end
