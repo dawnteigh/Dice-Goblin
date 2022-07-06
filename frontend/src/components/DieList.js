@@ -10,9 +10,13 @@ const DieList = ({ handleShowDie, showDie }) => {
   const [filter, setFilter] = useState("all")
   const [search, setSearch] = useState("")
 
+
   useEffect(()=> {
-    setList(dice)
-    setFilter("all")
+    if (filter === "all") {
+      setList(dice)
+    } else {
+      setList(dice.filter(d => d.type_of_die === filter))
+    }
   }, [dice])
 
   const searchList = list.filter(d => d.description.toLowerCase().includes(search.toLowerCase()))
