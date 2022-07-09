@@ -1,7 +1,7 @@
 class Die < ActiveRecord::Base
     self.table_name = "dice"
     has_many :values
-
+ 
     def create_values
         if type_of_die == "d%"
             self.update(num_of_values: 10)
@@ -71,4 +71,21 @@ class Die < ActiveRecord::Base
                 min_perc_name: check ? "No qualifying dice" : top_min_name
             }
     end
+
+    def self.top_five_avg(type_of_die)
+        Die.all.where(type_of_die: type_of_die).sort_by{ |d| d.average_roll }.reverse[0..4]
+    end
+
+    def self.bottom_five_avg(type_of_die)
+        Die.all.where(type_of_die: type_of_die).sort_by{ |d| d.average_roll }[0..4]
+    end
+
+    def self.most_rolled(type_of_die)
+        Die.all.where(type_of_die: type_of_die).sort_by{ |d| d.total_rolls }.reverse[0..4]
+    end
+
+    def self.least_rolled(type_of_die)
+        Die.all.where(type_of_die: type_of_die).sort_by{ |d| d.total_rolls }[0..4]
+    end
+
 end
