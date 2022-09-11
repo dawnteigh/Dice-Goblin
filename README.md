@@ -12,12 +12,12 @@ You will need to have [Node Package Manager](https://docs.npmjs.com/downloading-
 
 ## Usage
 To get started, make sure you are in the correct directory, and type this in your terminal:
-```terminal
+```shell
 ~/dice-goblin$ cd frontend
 ~/dice-goblin/frontend$ npm install && npm start
 ```
 A browser window will open with Dice Goblin running, but we're not done yet; open a new terminal and input:
-```terminal
+```shell
 ~/dice-goblin$ cd backend
 ~/dice-goblin/backend$ bundle install
 ~/dice-goblin/backend$ rake db:migrate
