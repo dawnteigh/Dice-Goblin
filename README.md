@@ -1,6 +1,7 @@
 # Dice Goblin
 
 Do you like to roll dice? Are you fascinated by statistics, or obsessed with how balanced your dice are? If your response to any of the preceding questions was "yes" or even "eh, kind of... I guess", read on. Whether it be for games of chance, board games, or TTRPGs, Dice Goblin is here to track all of your dice rolls and help you answer questions like "Which of my d20s rolls the highest numbers on average?" or "Does this particular dice throwing technique really result in fewer sevens?". Find out if your dice are balanced or if they fly in the face of probability itself as you log countless rolls and watch the averages change in real time.
+<br>[<b>Here's a video demonstration of how the app works!</b>](https://youtu.be/pMznK35uu4A)
 
 ## Requirements
 You will need to have [Node Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and [Ruby](https://www.ruby-lang.org/en/documentation/installation/) installed to use Dice Goblin.<br>
