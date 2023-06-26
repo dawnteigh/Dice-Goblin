@@ -138,7 +138,7 @@ const Stats = () => {
           </Table>
         </>
       : <h1>Loading...</h1>
-}
+      }
     </div>
   )
 }

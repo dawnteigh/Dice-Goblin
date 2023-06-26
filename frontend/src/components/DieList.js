@@ -23,7 +23,7 @@ const DieList = ({ handleShowDie, showDie }) => {
 
   const diceList = searchList.map(d => {
     return (
-        <DieCard key={d.id} die={d} showDie={showDie} handleShowDie={handleShowDie} />
+      <DieCard key={d.id} die={d} showDie={showDie} handleShowDie={handleShowDie} />
     )
   })
 
@@ -52,7 +52,7 @@ const DieList = ({ handleShowDie, showDie }) => {
       </select>
       <input onChange={(e) => setSearch(e.target.value)} type="text" size="52" placeholder="Search dice by description" />
       <div className="diceGrid">
-          {dice.length === 0 ? "You currently have no dice to speak of. Click 'Add New Die/Dice' to get started!" : diceList}
+        {dice.length === 0 ? "You currently have no dice to speak of. Click 'Add New Die/Dice' to get started!" : diceList}
       </div>
     </div>
   )

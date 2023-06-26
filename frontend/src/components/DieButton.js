@@ -3,7 +3,6 @@ import React from 'react'
 const DieButton = ({ val, dieId, update, setLastValue }) => {
   const { value, times_rolled } = val
 
-
   const handleClick = (e) => {
     setLastValue({
       value: value,
@@ -12,10 +11,10 @@ const DieButton = ({ val, dieId, update, setLastValue }) => {
     fetch(`http://localhost:9292/values/${dieId}/${value}`, {
       method: "PATCH",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-          times_rolled: times_rolled + 1
+        times_rolled: times_rolled + 1
       }),
   })
     .then(r => r.json())
@@ -23,7 +22,7 @@ const DieButton = ({ val, dieId, update, setLastValue }) => {
   }
 
   return (
-      <button className="button" onClick={handleClick}>{value === 0 ? String(value) + "0" : value}</button>
+    <button className="button" onClick={handleClick}>{value === 0 ? String(value) + "0" : value}</button>
   )
 }
 

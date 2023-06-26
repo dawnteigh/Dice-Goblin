@@ -7,9 +7,6 @@ import { useContext, useEffect } from 'react';
 import { Route, Switch } from "react-router-dom";
 import { DiceContext } from "../context/dice";
 
-
-
-
 function App() {
 
   const { setDice } = useContext(DiceContext)

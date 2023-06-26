@@ -38,12 +38,12 @@ const DieForm = () => {
       fetch("http://localhost:9292/dice", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            description: formData.description,
-            type_of_die: formData.type_of_die,
-            image_url: formData.image_url
+          description: formData.description,
+          type_of_die: formData.type_of_die,
+          image_url: formData.image_url
         }),
     })
       .then(r => r.json())
@@ -88,7 +88,6 @@ const DieForm = () => {
         </Modal.Footer>
       </Modal>
       </form>
-
     </div>
   )
 }

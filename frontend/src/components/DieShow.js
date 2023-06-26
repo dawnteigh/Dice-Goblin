@@ -44,9 +44,10 @@ const DieShow = ({ die, update }) => {
           break;
         case 2 || 12:
           percAvg = 2.78
-         break;
+        break;
       }
     }
+
     const percStyle = (avg) => {
       if (avg === 0 || avg === percAvg) {
         return "white"
@@ -58,11 +59,12 @@ const DieShow = ({ die, update }) => {
         return "red"
       } 
     }
+
     return (
       <p key={v.id} ><span className='values'>{v.value === 0 ? String(v.value) + "0" : v.value}</span>:
       <span style={{ color: percStyle(valAvg) }}> {total_rolls === 0 ? 0 : valAvg}%</span></p>
     )
-    })
+  })
 
   const statAvg = (values[0].value + values[values.length - 1].value) / 2
   
@@ -105,10 +107,10 @@ const DieShow = ({ die, update }) => {
     fetch(`http://localhost:9292/values/${id}/${lastValue.value}`, {
       method: "PATCH",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-          times_rolled: lastValue.prevTotal
+        times_rolled: lastValue.prevTotal
       }),
   })
     .then(r => r.json())
@@ -121,10 +123,10 @@ const DieShow = ({ die, update }) => {
     fetch(`http://localhost:9292/values/${id}`, {
       method: "PATCH",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-          times_rolled: 0
+        times_rolled: 0
       }),
   })
     .then(r => r.json())

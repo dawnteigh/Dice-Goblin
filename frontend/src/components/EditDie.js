@@ -26,11 +26,11 @@ const EditDie = ({ die, update, setShowDie }) => {
     fetch(`http://localhost:9292/dice/${id}`, {
       method: "PATCH",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-          description: formData.description,
-          image_url: formData.image_url
+        description: formData.description,
+        image_url: formData.image_url
       }),
   })
     .then(r => r.json())
@@ -66,8 +66,10 @@ const EditDie = ({ die, update, setShowDie }) => {
         <Modal.Header closeButton>
           <Modal.Title>Dice Goblin says:</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Are you sure you want to delete <b>{description} ({type_of_die})</b> and all statistics tied to it?
-				This action cannot be undone.</Modal.Body>
+        <Modal.Body>
+          Are you sure you want to delete <b>{description} ({type_of_die})</b> and all statistics tied to it?
+				  This action cannot be undone.
+        </Modal.Body>
         <Modal.Footer>
           <button className="button" onClick={handleClose}>
             Actually, nevermind
