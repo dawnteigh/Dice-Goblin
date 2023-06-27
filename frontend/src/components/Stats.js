@@ -88,7 +88,7 @@ const Stats = () => {
               </tr>
               <tr>
                 <td>Highest Average<br/>
-                (min. 50 rolls)</td>
+                <span className='minRolls'>(min. 50 rolls)</span></td>
                 <td title={`The d4 with the Highest Average Roll`}>{type_stats["d4"].max_avg}<br/><i>{type_stats["d4"].max_avg_name}</i></td>
                 <td title={`The d6 with the Highest Average Roll`}>{type_stats["d6"].max_avg}<br/><i>{type_stats["d6"].max_avg_name}</i></td>
                 <td title={`The d8 with the Highest Average Roll`}>{type_stats["d8"].max_avg}<br/><i>{type_stats["d8"].max_avg_name}</i></td>
@@ -100,7 +100,7 @@ const Stats = () => {
               </tr>
               <tr>
                 <td>Lowest Average<br/>
-                (min. 50 rolls)</td>
+                <span className='minRolls'>(min. 50 rolls)</span></td>
                 <td title={`The d4 with the Lowest Average Roll`}>{type_stats["d4"].min_avg}<br/><i>{type_stats["d4"].min_avg_name}</i></td>
                 <td title={`The d6 with the Lowest Average Roll`}>{type_stats["d6"].min_avg}<br/><i>{type_stats["d6"].min_avg_name}</i></td>
                 <td title={`The d8 with the Lowest Average Roll`}>{type_stats["d8"].min_avg}<br/><i>{type_stats["d8"].min_avg_name}</i></td>
@@ -112,7 +112,7 @@ const Stats = () => {
               </tr>
               <tr>
                 <td>Maximum Roll Percentage<br/>
-                (min. 50 rolls)</td>
+                <span className='minRolls'>(min. 50 rolls)</span></td>
                 <td title={`Highest Percentage of "4" Rolls`}>{type_stats["d4"].max_perc}%<br/><i>{type_stats["d4"].max_perc_name}</i></td>
                 <td title={`Highest Percentage of "6" Rolls`}>{type_stats["d6"].max_perc}%<br/><i>{type_stats["d6"].max_perc_name}</i></td>
                 <td title={`Highest Percentage of "8" Rolls`}>{type_stats["d8"].max_perc}%<br/><i>{type_stats["d8"].max_perc_name}</i></td>
@@ -124,7 +124,7 @@ const Stats = () => {
               </tr>
               <tr>
                 <td>Minimum Roll Percentage<br/>
-                (min. 50 rolls)</td>
+                <span className='minRolls'>(min. 50 rolls)</span></td>
                 <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d4"].min_perc}%<br/><i>{type_stats["d4"].min_perc_name}</i></td>
                 <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d6"].min_perc}%<br/><i>{type_stats["d6"].min_perc_name}</i></td>
                 <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d8"].min_perc}%<br/><i>{type_stats["d8"].min_perc_name}</i></td>

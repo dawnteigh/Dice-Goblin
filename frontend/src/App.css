@@ -198,6 +198,10 @@ select {
   font-size: small;
 }
 
+.wisdom p {
+  margin: 0;
+}
+
 .buttonDiv {
   padding: 5%;
   margin-left: 30%;
@@ -209,6 +213,12 @@ select {
 .stats {
   text-align: center;
   overflow: auto;
+}
+
+.minRolls {
+  color: #65e6f7;
+  font-style: italic;
+  font-size: small;
 }
 
 .topTable {

@@ -67,6 +67,7 @@ const DieShow = ({ die, update }) => {
   })
 
   const statAvg = (values[0].value + values[values.length - 1].value) / 2
+  const oneRollPerc = Math.round((100 / values.length) * 100) / 100 
   
   const avgStyle = (d) => {
     if (d.total_rolls === 0) {
@@ -81,15 +82,16 @@ const DieShow = ({ die, update }) => {
   }
 
   const dieWisdom = (d) => {
-    const wisdom = `* The statistical average for ${d.type_of_die} is ${statAvg}`
+    const wisdom = `* The statistical average roll for ${d.type_of_die} is ${statAvg}`
+    const wisdom2 = `** The percentage to roll any given value is ${oneRollPerc}%`
     if (d.type_of_die === "d10") {
       return (
-      <p>{wisdom}<br/><br/>** The 0 represents a value of 10</p>
+      <p>{wisdom}<br/>{wisdom2}<br/>*** The 0 represents a value of 10</p>
       )
     }
     else if (d.type_of_die === "d%") {
       return (
-      <p>{wisdom}<br/><br/>** 00 is treated as the lowest value here because 9 times out of 10, it is</p>
+      <p>{wisdom}<br/>{wisdom2}<br/>*** 00 is treated as the lowest value here because 9 times out of 10, it is</p>
       )
     } 
     else if (d.type_of_die === "2d6") {
@@ -98,7 +100,7 @@ const DieShow = ({ die, update }) => {
       )
     } else {
       return (
-        <p>{wisdom}</p>
+        <p>{wisdom}<br/>{wisdom2}</p>
       )
     }
   } 
