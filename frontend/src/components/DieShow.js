@@ -4,10 +4,12 @@ import DieButton from './DieButton'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Modal from 'react-bootstrap/Modal'
 
 const DieShow = ({ die, update }) => {
   const { id, description, type_of_die, image_url, total_rolls, average_roll, num_of_values, values } = die
   const { lastValue, setLastValue } = useContext(DiceContext)
+  const [show, setShow] = useState(false)
   const [showP, setShowP] = useState(false)
   
   const buttons = values.map(v => {
@@ -134,6 +136,7 @@ const DieShow = ({ die, update }) => {
     .then(r => r.json())
     .then(data => update(data))
     .then(() => setLastValue(false))
+    .then(() => setShow(false))
     .catch(err => alert("Could not complete your request. Make sure the server at http://localhost:9292 is running!"))
   }
 
@@ -161,7 +164,24 @@ const DieShow = ({ die, update }) => {
           {buttons}
         </div>
         <button className="button" onClick={handleUndo} disabled={!lastValue}>Undo Last Roll</button>
-        <button className="button" onClick={handleReset} disabled={!total_rolls}>Reset All Values</button>
+        <button className="button" onClick={() => setShow(!show)} disabled={!total_rolls}>Reset All Values</button>
+        <Modal show={show} onHide={() => setShow(!show)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Dice Goblin says:</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to reset all values associated with <b>{description} ({type_of_die})</b>?
+				  This action cannot be undone.
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="button" onClick={() => setShow(!show)}>
+            Actually, nevermind
+          </button>
+          <button className="button" onClick={handleReset}>
+            Yes, reset them
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
