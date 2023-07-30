@@ -13,6 +13,8 @@ const Dice = () => {
   const { dice, setDice, setLastValue } = useContext(DiceContext)
   const [showDie, setShowDie] = useState(null)
   
+  const { message, defAcc } = dice.length !== 0 ? { message: "Select a die to get started!", defAcc: "1" } : { message: "Your collection is empty, add some dice to get rolling!", defAcc: "0" }
+
   const handleShowDie = (id) => {
     fetch(`http://localhost:9292/dice/${id}`)
     .then(r => r.json())
@@ -39,7 +41,7 @@ const Dice = () => {
           <Row>
             <Col>
               <div className='accDiv'>
-                <Accordion defaultActiveKey="1" flush>
+                <Accordion defaultActiveKey={defAcc} flush>
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>Add New Die/Dice</Accordion.Header>
                     <Accordion.Body>
@@ -49,13 +51,13 @@ const Dice = () => {
                   <Accordion.Item eventKey="1">
                     <Accordion.Header>Roll Selected Die/Dice</Accordion.Header>
                     <Accordion.Body>
-                      {showDie ? <DieShow die={showDie} update={handleUpdateDie} /> : "Select a die to get started!"}
+                      {showDie ? <DieShow die={showDie} update={handleUpdateDie} /> : message}
                     </Accordion.Body>
                   </Accordion.Item>
                   <Accordion.Item eventKey="2">
                     <Accordion.Header>Edit Selected Die/Dice</Accordion.Header>
                     <Accordion.Body>
-                    {showDie ? <EditDie die={showDie} update={handleUpdateDie} setShowDie={setShowDie} /> : "Select a die to get started!"}
+                    {showDie ? <EditDie die={showDie} update={handleUpdateDie} setShowDie={setShowDie} /> : message}
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
