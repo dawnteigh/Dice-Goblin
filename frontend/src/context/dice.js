@@ -6,6 +6,11 @@ function DiceProvider({ children }) {
 
 	const [dice, setDice] = useState([])
 	const [lastValue, setLastValue] = useState(false)
+	const [showDie, setShowDie] = useState(null)
+	const [formData, setFormData] = useState({
+		description: "",
+		image_url: ""
+	  })
 
 	useEffect(() => {
 		fetch("http://localhost:9292/dice")
@@ -14,7 +19,7 @@ function DiceProvider({ children }) {
 			.catch(err => alert("Could not access database. Make sure the server at http://localhost:9292 is running!"))
 	}, [])
 
-	return <DiceContext.Provider value={{ dice, setDice, lastValue, setLastValue }}>{children}</DiceContext.Provider>
+	return <DiceContext.Provider value={{ dice, setDice, lastValue, setLastValue, showDie, setShowDie, formData, setFormData }}>{children}</DiceContext.Provider>
 }
 
 export { DiceContext, DiceProvider } 

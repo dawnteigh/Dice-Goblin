@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import DieCard from './DieCard'
 import { DiceContext } from "../context/dice";
 
-const DieList = ({ handleShowDie, showDie }) => {
+const DieList = ({ handleShowDie }) => {
 
-  const { dice } = useContext(DiceContext)
+  const { dice, showDie } = useContext(DiceContext)
 
   const [list, setList] = useState([])
   const [filter, setFilter] = useState("all")

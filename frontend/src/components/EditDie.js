@@ -2,15 +2,11 @@ import React, { useContext, useState } from 'react'
 import { DiceContext } from "../context/dice";
 import Modal from 'react-bootstrap/Modal'
 
-const EditDie = ({ die, update, setShowDie }) => {
+const EditDie = ({ update }) => {
 
-	const { id, description, image_url, type_of_die } = die
-	const { dice, setDice } = useContext(DiceContext)
+	const { dice, setDice, showDie, setShowDie, formData, setFormData } = useContext(DiceContext)
+	const { id, description, image_url, type_of_die } = showDie
 	const [show, setShow] = useState(false);
-	const [formData, setFormData] = useState({
-    description: description,
-    image_url: image_url
-  })
 
 	const handleChange = (e) => {
     const key = e.target.name

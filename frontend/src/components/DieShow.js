@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Modal from 'react-bootstrap/Modal'
 
-const DieShow = ({ die, update }) => {
-  const { id, description, type_of_die, image_url, total_rolls, average_roll, num_of_values, values } = die
-  const { lastValue, setLastValue } = useContext(DiceContext)
+const DieShow = ({ update }) => {
+  const { lastValue, setLastValue, showDie } = useContext(DiceContext)
+  const { id, description, type_of_die, image_url, total_rolls, average_roll, num_of_values, values } = showDie
   const [show, setShow] = useState(false)
   const [showP, setShowP] = useState(false)
   
@@ -46,7 +46,8 @@ const DieShow = ({ die, update }) => {
           break;
         case 2 || 12:
           percAvg = 2.78
-        break;
+          break;
+        default:
       }
     }
 
@@ -145,17 +146,17 @@ const DieShow = ({ die, update }) => {
       <Container fluid>
         <Row>
           <Col>
-            <img className="showImg" src={image_url} /><br/>
+            <img className="showImg" alt={description} src={image_url} /><br/>
           </Col>
           <Col>
             <b>{description}</b><br/>
             Total Rolls: {total_rolls}<br/>
-            Average Roll: <span style={{color: avgStyle(die)}}>{average_roll}</span><br/>
+            Average Roll: <span style={{color: avgStyle(showDie)}}>{average_roll}</span><br/>
             <div className="valueGrid" onClick={(e) => setShowP(!showP)}>
               {!showP ? rollTotals : rollPercentages}
             </div>
             <div className='wisdom'>
-              {dieWisdom(die)}
+              {dieWisdom(showDie)}
             </div>   
           </Col>
         </Row>
