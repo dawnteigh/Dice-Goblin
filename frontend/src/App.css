@@ -1,11 +1,20 @@
-.App {
-  text-align: center;
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
   background-color: #202025;
-  height: 100vh;
   overflow: hidden;
 }
 
-h1, h5 {
+.App {
+  text-align: center;
+  background-color: #202025;
+  margin-top: 5%;
+  overflow: hidden;
+}
+
+h1,
+h5 {
   color: #65e6f7;
   font-family: monospace, 'Courier New', Courier;
   text-transform: uppercase;
@@ -19,7 +28,11 @@ h5 {
 }
 
 .navBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding-bottom: 3%;
+  z-index: 999;
 }
 
 .navTab {
@@ -44,19 +57,44 @@ h5 {
 }
 
 .home {
-  margin-left: 10%;
-  margin-right: 10%;
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #001F3E;
+  overflow: hidden;
 }
 
-.homeDiv {
+.goblin-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  min-width: 500px;
+  z-index: 0;
+}
+
+.home-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-25%, -50%);
   color: white;
   padding: 2%;
   background-color: #110e35;
-  width: 35%;
+  width: max(35%, 40ch);
   height: fit-content;
   border-radius: 10%;
   border: solid 3px #65e6f7;
   box-shadow: rgba(107, 219, 244, 0.35) 0 -25px 18px -14px inset, rgba(107, 219, 244, 0.35) 0 1px 2px, rgba(107, 219, 244, 0.35) 0 2px 4px, rgba(107, 219, 244, 0.35) 0 4px 8px, rgba(107, 219, 244, 0.35) 0 8px 16px, rgba(107, 219, 244, 0.35) 0 16px 32px;
+}
+
+.home-div span {
+  font-family: monospace, 'Courier New', Courier;
+  letter-spacing: 2px;
+  color: #65e6f7;
 }
 
 .container {
@@ -71,7 +109,7 @@ h5 {
 .accordion {
   background-color: #110e35;
   box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
-  border:#110e35 solid 3px;
+  border: #110e35 solid 3px;
   border-radius: 10px;
   overflow: auto;
 }
@@ -79,7 +117,7 @@ h5 {
 .accordion-button {
   background-color: #110e35;
   color: #65e6f7;
-  
+
 }
 
 .accordion-button:not(.collapsed) {
@@ -89,7 +127,7 @@ h5 {
 
 .accordion-body {
   background-color: #212529;
-  color:white;
+  color: white;
 }
 
 input[type=text] {
@@ -101,10 +139,11 @@ input[type=text] {
   padding: 1%;
   margin-bottom: 1%;
   font-family: monospace, 'Courier New', Courier;
-  
+
 }
 
-select, .button {
+select,
+.button {
   font-family: monospace, 'Courier New', Courier;
   font-size: 16px;
   letter-spacing: 2px;
@@ -115,7 +154,7 @@ select, .button {
   cursor: pointer;
   border: 2px solid;
   padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px #110e35, 2px 2px 0px 0px #110e35, 3px 3px 0px 0px #110e35, 4px 4px 0px 0px #110e35, 5px 5px 0px 0px ;
+  box-shadow: 1px 1px 0px 0px #110e35, 2px 2px 0px 0px #110e35, 3px 3px 0px 0px #110e35, 4px 4px 0px 0px #110e35, 5px 5px 0px 0px;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
@@ -162,11 +201,12 @@ select {
 .card {
   cursor: pointer;
   background-color: #110e35;
-  color:white;
+  color: white;
   border-radius: 0%;
 }
 
-.thumbnail, .showImg {
+.thumbnail,
+.showImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -246,7 +286,8 @@ select {
   background-color: #110e35;
 }
 
-.modal-body, .modal-footer {
+.modal-body,
+.modal-footer {
   background-color: #212529;
 }
 
