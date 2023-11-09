@@ -27,17 +27,17 @@ A browser window will open with Dice Goblin running, but we're not done yet; ope
 <i>* You can optionally add db:seed right after db:migrate to see how the app works with some default dice data</i><br><br>
 This will get the Dice Goblin server running on http://localhost:9292/. Then you're all set!
 You are now ready to start adding dice to your collection and tracking their rolls.<br><br>
-<img src="dicegoblin.gif" alt="dice goblin" height="auto" width="800" />
+<img src="frontend/src/assets/dice-goblin.gif" alt="dice goblin" height="auto" width="800" />
 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Roadmap
-My next goal with Dice Goblin is to allow users to upload images straight to the database, without the need of an image URL. I want the images to be able to be loaded using a file path. A more dynamic stats page is also in the cards.
+Future plans include switching to a Java backend, allowing users to upload image files directly, improving the stats page, and a refreshed UI that replaces Bootstrap with components from my own library.
 
 ## Acknowledgements
-- Image on the 'Home' page is from [PNGWing](https://pngwing.com).
+- Image on the 'Home' page generated using [Bing Image Creator](https://www.bing.com/images/create/), powered by DALL-E 3.
 - Dice Goblin was built with the help of components from [React Bootstrap](https://react-bootstrap.github.io/).
 - Application created using [Create React App](https://create-react-app.dev/).
 - Images in seed data hosted with [Cloudinary](https://cloudinary.com/).
