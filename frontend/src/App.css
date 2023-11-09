@@ -8,7 +8,6 @@ body {
 
 .App {
   text-align: center;
-  background-color: #202025;
   margin-top: 5%;
   overflow: hidden;
 }
@@ -29,6 +28,10 @@ h5 {
 
 .navBar {
   position: fixed;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
   top: 0;
   width: 100%;
   padding-bottom: 3%;
@@ -44,11 +47,10 @@ h5 {
   color: #65e6f7;
   width: 20%;
   padding: 12px;
-  margin: 0;
   background: #110e35;
   text-decoration: none;
   border-radius: 0% 0% 10% 10%;
-  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
+  box-shadow: rgba(0, 31, 61, 0.2) 0 -25px 18px -14px inset, rgba(0, 31, 61, 0.2) 0 1px 2px, rgba(0, 31, 61, 0.2) 0 2px 4px, rgba(0, 31, 61, 0.2) 0 4px 8px, rgba(0, 31, 61, 0.2) 0 8px 16px, rgba(0, 31, 61, 0.2) 0 16px 32px;
 }
 
 .navTab:hover {
@@ -63,7 +65,8 @@ h5 {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #001F3E;
+  background: radial-gradient(circle at left bottom, #001f3e 50%, #65e6f7 60%, #202025 65%);
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -71,8 +74,7 @@ h5 {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 40%;
-  min-width: 500px;
+  width: max(200px, 40%);
   z-index: 0;
 }
 
@@ -86,7 +88,6 @@ h5 {
   background-color: #110e35;
   width: max(35%, 40ch);
   height: fit-content;
-  border-radius: 10%;
   border: solid 3px #65e6f7;
   box-shadow: rgba(107, 219, 244, 0.35) 0 -25px 18px -14px inset, rgba(107, 219, 244, 0.35) 0 1px 2px, rgba(107, 219, 244, 0.35) 0 2px 4px, rgba(107, 219, 244, 0.35) 0 4px 8px, rgba(107, 219, 244, 0.35) 0 8px 16px, rgba(107, 219, 244, 0.35) 0 16px 32px;
 }
@@ -108,10 +109,10 @@ h5 {
 
 .accordion {
   background-color: #110e35;
-  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
-  border: #110e35 solid 3px;
-  border-radius: 10px;
+  box-shadow: rgba(0, 31, 61, 0.2) 0 -25px 18px -14px, rgba(0, 31, 61, 0.2) 0 1px 2px, rgba(0, 31, 61, 0.2) 0 2px 4px, rgba(0, 31, 61, 0.2) 0 4px 8px, rgba(0, 31, 61, 0.2) 0 8px 16px, rgba(0, 31, 61, 0.2) 0 16px 32px;
   overflow: auto;
+  border: 3px solid #110e35;
+  border-radius: 10px;
 }
 
 .accordion-button {
@@ -189,7 +190,7 @@ select {
   overflow: auto;
   height: 80vh;
   margin-top: 2%;
-  box-shadow: rgba(56, 21, 145, 0.2) 0 -25px 18px -14px inset, rgba(56, 21, 145, 0.2) 0 1px 2px, rgba(56, 21, 145, 0.2) 0 2px 4px, rgba(56, 21, 145, 0.2) 0 4px 8px, rgba(56, 21, 145, 0.2) 0 8px 16px, rgba(56, 21, 145, 0.2) 0 16px 32px;
+  box-shadow: rgba(0, 31, 61, 0.2) 0 -25px 18px -14px inset, rgba(0, 31, 61, 0.2) 0 1px 2px, rgba(0, 31, 61, 0.2) 0 2px 4px, rgba(0, 31, 61, 0.2) 0 4px 8px, rgba(0, 31, 61, 0.2) 0 8px 16px, rgba(0, 31, 61, 0.2) 0 16px 32px;
   background-color: #212529;
 }
 
