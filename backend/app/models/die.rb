@@ -2,6 +2,14 @@ class Die < ActiveRecord::Base
   self.table_name = "dice"
   has_many :values
 
+  before_save :default_img
+
+  def default_img
+    if self.image_url == ""
+      self.image_url = "/mystery-die.jpeg"
+    end
+  end
+
   def create_values
     if type_of_die == "d%"
       self.update(num_of_values: 10)
