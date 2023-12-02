@@ -49,6 +49,7 @@ const Dice = () => {
     });
     setShowDie(updatedDie)
     setDice(updatedDice);
+    setActive("1")
   }
 
   return (
