@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_06_19_172218) do
   create_table "dice", force: :cascade do |t|
     t.string "description"
     t.string "type_of_die"
-    t.string "image_url"
+    t.string "image_url", default: "/mystery-die.jpeg"
     t.integer "num_of_values"
     t.integer "total_rolls", default: 0
     t.float "average_roll", default: 0.0
