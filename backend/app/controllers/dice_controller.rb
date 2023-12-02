@@ -17,7 +17,7 @@ class DiceController < ApplicationController
       image_url: params[:image_url]
     )
     new_die.create_values
-    new_die.to_json
+    new_die.to_json(include: :values)
   end
 
   # Edit desc and image
