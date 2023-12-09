@@ -2,16 +2,16 @@ import React, { useContext, useEffect, useState } from 'react'
 import DieCard from './DieCard'
 import { DiceContext } from "../context/dice";
 
-const DieList = ({ handleShowDie }) => {
+const DieList = ({ dice, handleShowDie }) => {
 
-  const { dice, showDie } = useContext(DiceContext)
+  const { showDie } = useContext(DiceContext)
 
   const [list, setList] = useState([])
   const [filter, setFilter] = useState("all")
   const [search, setSearch] = useState("")
 
 
-  useEffect(()=> {
+  useEffect(() => {
     if (filter === "all") {
       setList(dice)
     } else {
