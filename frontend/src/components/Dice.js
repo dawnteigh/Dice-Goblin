@@ -10,8 +10,9 @@ import DieShow from './DieShow'
 import EditDie from './EditDie'
 
 const Dice = () => {
-  const { dice, setDice, setLastValue, showDie, setShowDie, setFormData } = useContext(DiceContext)
+  const { activeStyle, dice, setDice, setLastValue, showDie, setShowDie, setFormData, session } = useContext(DiceContext)
   const [active, setActive] = useState("0")
+  const [view, setView] = useState("collection")
 
   const { message, defAcc } = dice.length !== 0 ? { message: "Select a die to get started!", defAcc: "1" } : { message: "Your collection is empty, add some dice to get rolling!", defAcc: "0" }
 
@@ -28,6 +29,8 @@ const Dice = () => {
       .catch(err => alert("Could not complete your request. Make sure the server at http://localhost:9292 is running!"))
     setLastValue(false)
   }
+
+  const displayDice = view === "session" ? dice.filter(die => session.indexOf(die.id) !== -1) : dice
 
   const handleAddDie = (newDie) => {
     setShowDie(newDie)
@@ -81,7 +84,27 @@ const Dice = () => {
             </div>
           </Col>
           <Col>
-            <DieList handleShowDie={handleShowDie} />
+            <form className="view-toggle">
+              <label style={view === "collection" ? activeStyle : null} >
+                <input
+                  type="radio"
+                  id="collection"
+                  checked={view === "collection"}
+                  onChange={(e) => setView(e.target.id)}
+                />
+                Collection
+              </label>
+              <label style={view === "session" ? activeStyle : null} >
+                <input
+                  type="radio"
+                  id="session"
+                  checked={view === "session"}
+                  onChange={(e) => setView(e.target.id)}
+                />
+                Session
+              </label>
+            </form>
+            <DieList handleShowDie={handleShowDie} dice={displayDice} />
           </Col>
         </Row>
       </Container>
