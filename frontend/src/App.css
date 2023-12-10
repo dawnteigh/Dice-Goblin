@@ -27,7 +27,7 @@ h5 {
   font-size: 1.2em;
 }
 
-.navBar {
+.nav-bar {
   position: fixed;
   display: flex;
   flex-flow: row wrap;
@@ -39,7 +39,7 @@ h5 {
   z-index: 999;
 }
 
-.navTab {
+.nav-tab {
   display: inline-block;
   font-family: monospace, 'Courier New', Courier;
   font-size: 16px;
@@ -54,7 +54,7 @@ h5 {
   box-shadow: rgba(0, 31, 61, 0.2) 0 -25px 18px -14px inset, rgba(0, 31, 61, 0.2) 0 1px 2px, rgba(0, 31, 61, 0.2) 0 2px 4px, rgba(0, 31, 61, 0.2) 0 4px 8px, rgba(0, 31, 61, 0.2) 0 8px 16px, rgba(0, 31, 61, 0.2) 0 16px 32px;
 }
 
-.navTab:hover {
+.nav-tab:hover {
   color: white;
   box-shadow: rgba(107, 219, 244, 0.35) 0 -25px 18px -14px inset, rgba(107, 219, 244, 0.35) 0 1px 2px, rgba(107, 219, 244, 0.35) 0 2px 4px, rgba(107, 219, 244, 0.35) 0 4px 8px, rgba(107, 219, 244, 0.35) 0 8px 16px, rgba(107, 219, 244, 0.35) 0 16px 32px;
 }
@@ -103,7 +103,7 @@ h5 {
   background-color: #202025;
 }
 
-.accDiv {
+.acc-div {
   overflow: auto;
   height: 88vh;
 }
@@ -211,7 +211,7 @@ select {
   }
 }
 
-.diceGrid {
+.dice-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -271,7 +271,7 @@ select {
   font-weight: bold;
 }
 
-.valueGrid {
+.value-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   cursor: pointer;
@@ -290,7 +290,7 @@ select {
   margin: 0;
 }
 
-.buttonDiv {
+.button-div {
   padding: 5%;
   margin-left: 30%;
   margin-right: 30%;
@@ -303,25 +303,25 @@ select {
   overflow: auto;
 }
 
-.minRolls {
+.min-rolls {
   color: #65e6f7;
   font-style: italic;
   font-size: small;
 }
 
-.topTable {
+.top-table {
   width: 35%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.topTable tbody td:nth-child(odd) {
+.top-table tbody td:nth-child(odd) {
   text-align: left;
   color: #65e6f7;
   font-weight: bold;
 }
 
-.bottomTable tbody td:nth-child(1) {
+.bottom-table tbody td:nth-child(1) {
   color: #65e6f7;
   font-weight: bold;
 }

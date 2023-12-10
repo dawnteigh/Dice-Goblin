@@ -7,11 +7,11 @@ const NavBar = () => {
   const { activeStyle } = useContext(DiceContext)
 
   return (
-    <div className="navBar">
+    <div className="nav-bar">
       <NavLink
         to="/"
         exact
-        className="navTab"
+        className="nav-tab"
         activeStyle={activeStyle}
       >
         Home
@@ -19,7 +19,7 @@ const NavBar = () => {
       <NavLink
         to="/dice"
         exact
-        className="navTab"
+        className="nav-tab"
         activeStyle={activeStyle}
       >
         Dice
@@ -27,7 +27,7 @@ const NavBar = () => {
       <NavLink
         to="/stats"
         exact
-        className="navTab"
+        className="nav-tab"
         activeStyle={activeStyle}
       >
         Stats

@@ -60,7 +60,7 @@ const Dice = () => {
       <Container fluid>
         <Row>
           <Col>
-            <div className='accDiv'>
+            <div className='acc-div'>
               <Accordion defaultActiveKey={defAcc} activeKey={active} flush>
                 <Accordion.Item eventKey="0" onClick={() => setActive("0")}>
                   <Accordion.Header>Add New Die/Dice</Accordion.Header>

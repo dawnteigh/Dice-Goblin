@@ -51,7 +51,7 @@ const DieList = ({ dice, handleShowDie }) => {
         <option value="2d6">2d6</option>
       </select>
       <input onChange={(e) => setSearch(e.target.value)} type="text" size="52" placeholder="Search dice by description" />
-      <div className="diceGrid">
+      <div className="dice-grid">
         {dice.length === 0 ? "You currently have no dice to speak of. Click 'Add New Die/Dice' to get started!" : diceList}
       </div>
     </div>

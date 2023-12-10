@@ -9,22 +9,22 @@ const Stats = () => {
 
   useEffect(() => {
     fetch('http://localhost:9292/stats')
-    .then(r => r.json())
-    .then(data => setStats(data))
-    .catch(err => alert("Could not find statistics. Make sure the server at http://localhost:9292 is running!"))
+      .then(r => r.json())
+      .then(data => setStats(data))
+      .catch(err => alert("Could not find statistics. Make sure the server at http://localhost:9292 is running!"))
   }, [])
 
   const { total_dice, total_rolls, total_twenties, total_ones, seven_perc, type_stats } = stats
-  
+
   const totalDice = (type) => dice.filter(d => d.type_of_die === type).length
   const totalRolls = (type) => dice.filter(d => d.type_of_die === type).map(d => d.total_rolls).reduce((a, b) => a + b, 0)
 
   return (
     <div className="stats">
-      {stats ? 
+      {stats ?
         <>
           <h5>General Stats</h5>
-          <Table className="topTable" striped bordered hover size="sm" variant="dark">
+          <Table className="top-table" striped bordered hover size="sm" variant="dark">
             <tbody>
               <tr>
                 <td>Total Dice</td>
@@ -46,10 +46,10 @@ const Stats = () => {
                 <td>Seven Percentage (2d6)</td>
                 <td>{!seven_perc ? "N/A" : `${seven_perc}%`}</td>
               </tr>
-              </tbody>
+            </tbody>
           </Table>
           <h5>Stats by Die Type</h5>
-          <Table className="bottomTable" striped bordered hover size="sm" variant="dark">
+          <Table className="bottom-table" striped bordered hover size="sm" variant="dark">
             <thead>
               <tr>
                 <th>Stat</th>
@@ -87,57 +87,57 @@ const Stats = () => {
                 <td title={`Combined Total Rolls for All 2d6`}>{totalRolls("2d6")}</td>
               </tr>
               <tr>
-                <td>Highest Average<br/>
-                <span className='minRolls'>(min. 50 rolls)</span></td>
-                <td title={`The d4 with the Highest Average Roll`}>{type_stats["d4"].max_avg}<br/><i>{type_stats["d4"].max_avg_name}</i></td>
-                <td title={`The d6 with the Highest Average Roll`}>{type_stats["d6"].max_avg}<br/><i>{type_stats["d6"].max_avg_name}</i></td>
-                <td title={`The d8 with the Highest Average Roll`}>{type_stats["d8"].max_avg}<br/><i>{type_stats["d8"].max_avg_name}</i></td>
-                <td title={`The d10 with the Highest Average Roll`}>{type_stats["d10"].max_avg}<br/><i>{type_stats["d10"].max_avg_name}</i></td>
-                <td title={`The d% with the Highest Average Roll`}>{type_stats["d%"].max_avg}<br/><i>{type_stats["d%"].max_avg_name}</i></td>
-                <td title={`The d12 with the Highest Average Roll`}>{type_stats["d12"].max_avg}<br/><i>{type_stats["d12"].max_avg_name}</i></td>
-                <td title={`The d20 with the Highest Average Roll`}>{type_stats["d20"].max_avg}<br/><i>{type_stats["d20"].max_avg_name}</i></td>
-                <td title={`The 2d6 with the Highest Average Roll`}>{type_stats["2d6"].max_avg}<br/><i>{type_stats["2d6"].max_avg_name}</i></td>
+                <td>Highest Average<br />
+                  <span className='min-rolls'>(min. 50 rolls)</span></td>
+                <td title={`The d4 with the Highest Average Roll`}>{type_stats["d4"].max_avg}<br /><i>{type_stats["d4"].max_avg_name}</i></td>
+                <td title={`The d6 with the Highest Average Roll`}>{type_stats["d6"].max_avg}<br /><i>{type_stats["d6"].max_avg_name}</i></td>
+                <td title={`The d8 with the Highest Average Roll`}>{type_stats["d8"].max_avg}<br /><i>{type_stats["d8"].max_avg_name}</i></td>
+                <td title={`The d10 with the Highest Average Roll`}>{type_stats["d10"].max_avg}<br /><i>{type_stats["d10"].max_avg_name}</i></td>
+                <td title={`The d% with the Highest Average Roll`}>{type_stats["d%"].max_avg}<br /><i>{type_stats["d%"].max_avg_name}</i></td>
+                <td title={`The d12 with the Highest Average Roll`}>{type_stats["d12"].max_avg}<br /><i>{type_stats["d12"].max_avg_name}</i></td>
+                <td title={`The d20 with the Highest Average Roll`}>{type_stats["d20"].max_avg}<br /><i>{type_stats["d20"].max_avg_name}</i></td>
+                <td title={`The 2d6 with the Highest Average Roll`}>{type_stats["2d6"].max_avg}<br /><i>{type_stats["2d6"].max_avg_name}</i></td>
               </tr>
               <tr>
-                <td>Lowest Average<br/>
-                <span className='minRolls'>(min. 50 rolls)</span></td>
-                <td title={`The d4 with the Lowest Average Roll`}>{type_stats["d4"].min_avg}<br/><i>{type_stats["d4"].min_avg_name}</i></td>
-                <td title={`The d6 with the Lowest Average Roll`}>{type_stats["d6"].min_avg}<br/><i>{type_stats["d6"].min_avg_name}</i></td>
-                <td title={`The d8 with the Lowest Average Roll`}>{type_stats["d8"].min_avg}<br/><i>{type_stats["d8"].min_avg_name}</i></td>
-                <td title={`The d10 with the Lowest Average Roll`}>{type_stats["d10"].min_avg}<br/><i>{type_stats["d10"].min_avg_name}</i></td>
-                <td title={`The d% with the Lowest Average Roll`}>{type_stats["d%"].min_avg}<br/><i>{type_stats["d%"].min_avg_name}</i></td>
-                <td title={`The d12 with the Lowest Average Roll`}>{type_stats["d12"].min_avg}<br/><i>{type_stats["d12"].min_avg_name}</i></td>
-                <td title={`The d20 with the Lowest Average Roll`}>{type_stats["d20"].min_avg}<br/><i>{type_stats["d20"].min_avg_name}</i></td>
-                <td title={`The 2d6 with the Lowest Average Roll`}>{type_stats["2d6"].min_avg}<br/><i>{type_stats["2d6"].min_avg_name}</i></td>
+                <td>Lowest Average<br />
+                  <span className='min-rolls'>(min. 50 rolls)</span></td>
+                <td title={`The d4 with the Lowest Average Roll`}>{type_stats["d4"].min_avg}<br /><i>{type_stats["d4"].min_avg_name}</i></td>
+                <td title={`The d6 with the Lowest Average Roll`}>{type_stats["d6"].min_avg}<br /><i>{type_stats["d6"].min_avg_name}</i></td>
+                <td title={`The d8 with the Lowest Average Roll`}>{type_stats["d8"].min_avg}<br /><i>{type_stats["d8"].min_avg_name}</i></td>
+                <td title={`The d10 with the Lowest Average Roll`}>{type_stats["d10"].min_avg}<br /><i>{type_stats["d10"].min_avg_name}</i></td>
+                <td title={`The d% with the Lowest Average Roll`}>{type_stats["d%"].min_avg}<br /><i>{type_stats["d%"].min_avg_name}</i></td>
+                <td title={`The d12 with the Lowest Average Roll`}>{type_stats["d12"].min_avg}<br /><i>{type_stats["d12"].min_avg_name}</i></td>
+                <td title={`The d20 with the Lowest Average Roll`}>{type_stats["d20"].min_avg}<br /><i>{type_stats["d20"].min_avg_name}</i></td>
+                <td title={`The 2d6 with the Lowest Average Roll`}>{type_stats["2d6"].min_avg}<br /><i>{type_stats["2d6"].min_avg_name}</i></td>
               </tr>
               <tr>
-                <td>Maximum Roll Percentage<br/>
-                <span className='minRolls'>(min. 50 rolls)</span></td>
-                <td title={`Highest Percentage of "4" Rolls`}>{type_stats["d4"].max_perc}%<br/><i>{type_stats["d4"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "6" Rolls`}>{type_stats["d6"].max_perc}%<br/><i>{type_stats["d6"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "8" Rolls`}>{type_stats["d8"].max_perc}%<br/><i>{type_stats["d8"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "0" Rolls`}>{type_stats["d10"].max_perc}%<br/><i>{type_stats["d10"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "90" Rolls`}>{type_stats["d%"].max_perc}%<br/><i>{type_stats["d%"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "12" Rolls`}>{type_stats["d12"].max_perc}%<br/><i>{type_stats["d12"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "20" Rolls`}>{type_stats["d20"].max_perc}%<br/><i>{type_stats["d20"].max_perc_name}</i></td>
-                <td title={`Highest Percentage of "12" Rolls`}>{type_stats["2d6"].max_perc}%<br/><i>{type_stats["2d6"].max_perc_name}</i></td>
+                <td>Maximum Roll Percentage<br />
+                  <span className='min-rolls'>(min. 50 rolls)</span></td>
+                <td title={`Highest Percentage of "4" Rolls`}>{type_stats["d4"].max_perc}%<br /><i>{type_stats["d4"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "6" Rolls`}>{type_stats["d6"].max_perc}%<br /><i>{type_stats["d6"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "8" Rolls`}>{type_stats["d8"].max_perc}%<br /><i>{type_stats["d8"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "0" Rolls`}>{type_stats["d10"].max_perc}%<br /><i>{type_stats["d10"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "90" Rolls`}>{type_stats["d%"].max_perc}%<br /><i>{type_stats["d%"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "12" Rolls`}>{type_stats["d12"].max_perc}%<br /><i>{type_stats["d12"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "20" Rolls`}>{type_stats["d20"].max_perc}%<br /><i>{type_stats["d20"].max_perc_name}</i></td>
+                <td title={`Highest Percentage of "12" Rolls`}>{type_stats["2d6"].max_perc}%<br /><i>{type_stats["2d6"].max_perc_name}</i></td>
               </tr>
               <tr>
-                <td>Minimum Roll Percentage<br/>
-                <span className='minRolls'>(min. 50 rolls)</span></td>
-                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d4"].min_perc}%<br/><i>{type_stats["d4"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d6"].min_perc}%<br/><i>{type_stats["d6"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d8"].min_perc}%<br/><i>{type_stats["d8"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d10"].min_perc}%<br/><i>{type_stats["d10"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "00" Rolls`}>{type_stats["d%"].min_perc}%<br/><i>{type_stats["d%"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d12"].min_perc}%<br/><i>{type_stats["d12"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d20"].min_perc}%<br/><i>{type_stats["d20"].min_perc_name}</i></td>
-                <td title={`Highest Percentage of "2" Rolls`}>{type_stats["2d6"].min_perc}%<br/><i>{type_stats["2d6"].min_perc_name}</i></td>
+                <td>Minimum Roll Percentage<br />
+                  <span className='min-rolls'>(min. 50 rolls)</span></td>
+                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d4"].min_perc}%<br /><i>{type_stats["d4"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d6"].min_perc}%<br /><i>{type_stats["d6"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d8"].min_perc}%<br /><i>{type_stats["d8"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d10"].min_perc}%<br /><i>{type_stats["d10"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "00" Rolls`}>{type_stats["d%"].min_perc}%<br /><i>{type_stats["d%"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d12"].min_perc}%<br /><i>{type_stats["d12"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "1" Rolls`}>{type_stats["d20"].min_perc}%<br /><i>{type_stats["d20"].min_perc_name}</i></td>
+                <td title={`Highest Percentage of "2" Rolls`}>{type_stats["2d6"].min_perc}%<br /><i>{type_stats["2d6"].min_perc_name}</i></td>
               </tr>
             </tbody>
           </Table>
         </>
-      : <h1>Loading...</h1>
+        : <h1>Loading...</h1>
       }
     </div>
   )
